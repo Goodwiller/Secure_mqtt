@@ -1,0 +1,74 @@
+[tool.poetry]
+name = "amqtt"
+version = "0.11.0-beta1"
+description = "MQTT client/broker using Python asyncio"
+authors = ["aMQTT Contributers"]
+license = "MIT"
+homepage = "https://github.com/Yakifo/amqtt"
+classifiers = [
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "Operating System :: POSIX",
+        "Operating System :: MacOS",
+        "Operating System :: Microsoft :: Windows",
+        "Topic :: Communications",
+        "Topic :: Internet",
+]
+packages = [
+    { include = "amqtt" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+transitions = "^0.8.0"
+websockets = ">=9.0,<11.0"
+passlib = "^1.7.0"
+docopt = "^0.6.0"
+PyYAML = ">=5.4.0,<7.0"
+coveralls = {version = "^3.0.1", optional = true}
+
+[tool.poetry.extras]
+ci = ["coveralls"]
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.2"
+pytest-cov = "^2.11.1"
+pytest-asyncio = "^0.14.0"
+asyncmock = "^0.4.0"
+mypy = "^0.812"
+pylint = "^2.7.2"
+black = "^21.10b0"
+flake8 = "^3.9.0"
+hypothesis = "^6.10.0"
+pytest-logdog = "^0.1.0"
+psutil = "^5.9.0"
+
+[tool.poetry.scripts]
+amqtt = 'amqtt.scripts.broker_script:main'
+amqtt_pub = 'amqtt.scripts.pub_script:main'
+amqtt_sub = 'amqtt.scripts.sub_script:main'
+
+[tool.poetry.plugins]
+
+[tool.poetry.plugins."amqtt.test.plugins"]
+"test_plugin" = "tests.plugins.test_manager:EmptyTestPlugin"
+"event_plugin" = "tests.plugins.test_manager:EventTestPlugin"
+"packet_logger_plugin" = "amqtt.plugins.logging:PacketLoggerPlugin"
+
+[tool.poetry.plugins."amqtt.broker.plugins"]
+"event_logger_plugin" = "amqtt.plugins.logging:EventLoggerPlugin"
+"packet_logger_plugin" = "amqtt.plugins.logging:PacketLoggerPlugin"
+"auth_anonymous" = "amqtt.plugins.authentication:AnonymousAuthPlugin"
+"auth_file" = "amqtt.plugins.authentication:FileAuthPlugin"
+"topic_taboo" = "amqtt.plugins.topic_checking:TopicTabooPlugin"
+"topic_acl" = "amqtt.plugins.topic_checking:TopicAccessControlListPlugin"
+"broker_sys" = "amqtt.plugins.sys.broker:BrokerSysPlugin"
+
+
+[tool.poetry.plugins."amqtt.client.plugins"]
+"packet_logger_plugin" = "amqtt.plugins.logging:PacketLoggerPlugin"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
