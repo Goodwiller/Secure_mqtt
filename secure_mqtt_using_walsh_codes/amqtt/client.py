@@ -571,14 +571,14 @@ class MQTTClient:
 
             # print(message)
             if len(message) > 1 and message[1] in self.subscribed_channels:
-                
+                print(time.time())
                 if message[2] == "walsh_data":
                     walsh_code_curr = await self.generate_walsh_code(int(message[3]))
                     GK = await self.get_GK(self.walsh_rows[message[1]], walsh_code_curr, ast.literal_eval(message[4]), self.perma_key)
                 
                     self.channel_keys[message[1]] = GK
                     # print(self.channel_keys)
-
+                    print(time.time())
                     print("New channel key added for channel \"" + message[1] + "\"")
                     deliver_task.result().publish_packet.payload.data = "New channel key added for channel \"" + message[1] + "\""
                 else:

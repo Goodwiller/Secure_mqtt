@@ -10,7 +10,7 @@ from urllib.parse import urlparse, urlunparse
 from functools import wraps
 import numpy as np
 import amqtt.ascon as asc
-
+import time
 import rsa
 
 from amqtt.session import Session
@@ -537,14 +537,14 @@ class MQTTClient:
             message = str(message).split('||')
 
             if len(message) > 1 and message[1] in self.subscribed_channels:
-
+                print(time.time())
                 gamma = message[2]
 
                 new_GK = int(gamma) % self.perma_key
 
                 self.channel_keys[message[1]] = new_GK
                 # print(new_GK)
-
+                print(time.time())
                 print("New channel key added for channel \"" + message[1] + "\"")
                 deliver_task.result().publish_packet.payload.data = "New channel key added for channel \"" + message[1] + "\""
                 return deliver_task.result()

@@ -150,8 +150,8 @@ class MQTTClient:
 
     async def decrypt_message(self, key_string, ciphertext):
         print("Decrypting message....")
-        key = key_string.encode()[0:16]
-        nonce = key_string.encode()[0:16]
+        key = str(key_string).encode()[0:16]
+        nonce = str(key_string).encode()[0:16]
         associateddata = b"ASCON"
 
         receivedplaintext = asc.ascon_decrypt(key, nonce, associateddata, ciphertext, "Ascon-128")
@@ -171,8 +171,8 @@ class MQTTClient:
     async def encrypt_data(self, data, key_string):
 
         print("Encrypting unicast message...")
-        key = key_string.encode()[0:16]
-        nonce = key_string.encode()[0:16]
+        key = str(key_string).encode()[0:16]
+        nonce = str(key_string).encode()[0:16]
         # key  = int(key_string, 16).to_bytes(16, 'big')
         # nonce = int(key_string, 16).to_bytes(16, 'little')
         associateddata = b"ASCON"
@@ -551,35 +551,35 @@ class MQTTClient:
             message = deliver_task.result().publish_packet.payload.data
             message = str(message).split('||')
             if len(message) > 1 and message[1] in self.subscribed_channels:
+                print(time.time())
+                # if message[2] == "New":
+                #     client_id = message[3]
+                #     client_id = client_id.replace("\\\\", "\\")
+                #     if (client_id == self.client_id):
+                #         encrypted_hash = message[4]
+                #         hash_cipher = bytes.fromhex(encrypted_hash)
+                #         GK  = await self.decrypt_key(str(self.perma_key), hash_cipher)
+                #         self.channel_keys[message[1]] = str(GK.decode("utf-8"))
 
-                if message[2] == "New":
-                    client_id = message[3]
+                #     else:
+                #         print("Decrypting key...")
+                #         old_GK  = self.channel_keys[message[1]]
+                #         new_GK = asc.ascon_hash(str(old_GK).encode())
+                #         self.channel_keys[message[1]] = str(new_GK.hex())
+                # else:
+                for i in range(3, len(message), 2):
+                    # print(message[i])
+                    client_id = message[i]
                     client_id = client_id.replace("\\\\", "\\")
                     if (client_id == self.client_id):
-                        encrypted_hash = message[4]
-                        hash_cipher = bytes.fromhex(encrypted_hash)
-                        GK  = await self.decrypt_key(str(self.perma_key), hash_cipher)
-                        self.channel_keys[message[1]] = str(GK.decode("utf-8"))
-
-                    else:
-                        print("Decrypting key...")
-                        old_GK  = self.channel_keys[message[1]]
-                        new_GK = asc.ascon_hash(str(old_GK).encode())
-                        self.channel_keys[message[1]] = str(new_GK.hex())
-                else:
-                    print("Decrypting key...")
-                    for i in range(3, len(message), 2):
-                        # print(message[i])
-                        client_id = message[i]
-                        client_id = client_id.replace("\\\\", "\\")
-                        if (client_id == self.client_id):
-                            # print(message[i+1])
-                            # print(int(message[i+1]) ^ self.perma_key)
-                            self.channel_keys[message[1]] = int(message[i+1]) ^ self.perma_key
-                            break
+                        # print(message[i+1])
+                        # print(int(message[i+1]) ^ self.perma_key)
+                        self.channel_keys[message[1]] = int(message[i+1]) ^ self.perma_key
+                        break
                     # print("someone left")
                 
                 # print(self.channel_keys[message[1]])
+                print(time.time())
                 print("New channel key added for channel \"" + message[1] + "\"")
                 deliver_task.result().publish_packet.payload.data = "New channel key added for channel \"" + message[1] + "\""
                 return deliver_task.result()

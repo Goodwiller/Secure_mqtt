@@ -12,7 +12,7 @@ import numpy as np
 import amqtt.ascon as asc
 from sympy import mod_inverse
 import rsa
-
+import time
 from amqtt.session import Session
 from amqtt.mqtt.connack import CONNECTION_ACCEPTED
 from amqtt.mqtt.protocol.client_handler import ClientProtocolHandler
@@ -537,7 +537,7 @@ class MQTTClient:
             message = str(message).split('||')
 
             if len(message) > 1 and message[1] in self.subscribed_channels:
-
+                print(time.time())
                 x = int(message[2])
                 d = int(message[3])
                 q = int(message[4])
@@ -565,7 +565,7 @@ class MQTTClient:
 
                 self.channel_keys[message[1]] = gamma_retrieved
                 # print(new_GK)
-
+                print(time.time())
                 print("New channel key added for channel \"" + message[1] + "\"")
                 deliver_task.result().publish_packet.payload.data = "New channel key added for channel \"" + message[1] + "\""
                 return deliver_task.result()

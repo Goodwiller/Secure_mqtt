@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 async def uptime_coro():
     C = MQTTClient()
     print("Connection process started at ", time.time())	
-    await C.connect("mqtt://0.0.0.0:1883/")
+    await C.connect("mqtt://172.17.34.5:1884/")
     print("Connection process ended at ", time.time())
     print("Subscription process started at ", time.time())	
     await C.subscribe(

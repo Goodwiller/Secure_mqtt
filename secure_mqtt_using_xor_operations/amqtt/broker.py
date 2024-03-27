@@ -176,35 +176,54 @@ class Broker:
 
     async def handle_join(self, topic, session):
 
-        # print(session)
         if (topic == "KEYDIS"):
             return
 
+        keys = []
+        #print(self._perma_key_table)
 
-        if topic in self._channel_key_table:
-            old_GK  = self._channel_key_table[topic]
-            new_GK = asc.ascon_hash(str(old_GK).encode())
-            self._channel_key_table[topic] = str(new_GK.hex())
-        else:
-            #creating hash seed
-            hash_seed = os.urandom(16)
-            hash_seed = int.from_bytes(hash_seed, byteorder="big")
-            # print(hash_seed)
+        # Get keys of existing clients subscribed to the channel
+        if topic in self._subscriptions:
+            for client in self._subscriptions[topic]:
+                if client[0].client_id in self._perma_key_table:
+                    keys.insert(len(keys), (client[0].client_id, self._perma_key_table[client[0].client_id]))
+            
+            # print(keys)
 
-            #create first GK
-            GK = asc.ascon_hash(str(hash_seed).encode())
-            # print(str(GK.hex()))
+            # Generate random integer
+            random_int = os.urandom(16)
+            random_int = int.from_bytes(random_int, byteorder="big")
 
-            self._channel_key_table[topic] = str(GK.hex())
+            xor_operation = keys[0][1]
+            for i in range(1, len(keys)):
+                xor_operation = xor_operation ^ keys[i][1]
 
 
-        # print(self._channel_key_table[topic])
-        encrypted_hash = await self.encrypt_key(self._channel_key_table[topic].encode(), self._perma_key_table[session.client_id])
-        # print(encrypted_hash.hex())
+            xor_operation = xor_operation ^ random_int
+            # print(xor_operation)
 
-        #Making message of the join
-        hash_message = "||" + topic + "||" + "New" + "||" + session.client_id + "||" + encrypted_hash.hex() + "||"
-        # print(hash_message)
+            self._channel_key_table[topic] = xor_operation
+
+            partial_xors = []
+            for i in range(0, len(keys)):
+                partial_xors.insert(len(partial_xors), (keys[i][0], xor_operation ^ keys[i][1]))
+
+            # print(partial_xors)
+
+            #for loop to test if the xoring is working or not
+            # for i in range(0, len(partial_xors)):
+            #     partial_xors[i] = (partial_xors[i][0], partial_xors[i][1] ^ self._perma_key_table[partial_xors[i][0]])            
+            # print(partial_xors)
+
+
+            #Making message of the hash
+            hash_message = "||" + topic + "||" + "New" + "||"
+
+
+            for i in range(0, len(partial_xors)):
+                hash_message = hash_message + str(partial_xors[i][0]) + "||" + str(partial_xors[i][1]) + "||"
+
+            # print(hash_message)
 
         #Converting string to byte array to send
         encoded=hash_message.encode('utf-8')
@@ -339,8 +358,8 @@ class Broker:
 
     async def encrypt_data(self, data, key_string):
 
-        key = key_string.encode()[0:16]
-        nonce = key_string.encode()[0:16]
+        key = str(key_string).encode()[0:16]
+        nonce = str(key_string).encode()[0:16]
         associateddata = b"ASCON"
         ciphertext = asc.ascon_encrypt(key, nonce, associateddata, data,  "Ascon-128")
         # print(key, nonce, ciphertext)
@@ -349,8 +368,8 @@ class Broker:
 
     async def decrypt_message(self, key_string, ciphertext):
         print("Decrypting unicast message ....")
-        key = key_string.encode()[0:16]
-        nonce = key_string.encode()[0:16]
+        key = str(key_string).encode()[0:16]
+        nonce = str(key_string).encode()[0:16]
         associateddata = b"ASCON"
 
         receivedplaintext = asc.ascon_decrypt(key, nonce, associateddata, ciphertext, "Ascon-128")

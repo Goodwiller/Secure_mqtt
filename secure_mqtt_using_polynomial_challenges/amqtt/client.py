@@ -540,6 +540,7 @@ class MQTTClient:
             message = str(message).split('||')
 
             if len(message) > 1 and message[1] in self.subscribed_channels:
+                print(time.time())
                 coefficients = []
                 for ele in message[2:len(message) - 1]:
                     coefficients.insert(len(coefficients), int(ele))
@@ -548,7 +549,7 @@ class MQTTClient:
                 
                 self.channel_keys[message[1]] = new_GK
                 # print(self.channel_keys)
-
+                print(time.time())
                 print("New channel key added for channel \"" + message[1] + "\"")
                 deliver_task.result().publish_packet.payload.data = "New channel key added for channel \"" + message[1] + "\""
                 return deliver_task.result()
