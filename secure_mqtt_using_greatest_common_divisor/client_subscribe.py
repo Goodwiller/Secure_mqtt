@@ -20,7 +20,7 @@ async def uptime_coro():
     print("Connection process started at ", time.time())	
     await C.connect("mqtt://172.17.34.5:1884/")
     print("Connection process ended at ", time.time())
-    print("Subscription process started at ", time.time())	
+    print("Subscription process with network latency started at: ", time.time())		
     await C.subscribe(
         [
             ("default", QOS_1),
@@ -37,7 +37,7 @@ async def uptime_coro():
                 % (packet.variable_header.topic_name, str(packet.payload.data))
             )
             if (packet.payload.data[0] == 'N' and count == 0):
-                print("Subscription process ended and new group key acheived at ", time.time())
+                print("Subscription process with network latency ended at: ", time.time())
                 count = count + 1
         await C.unsubscribe(["default"])
         logger.info("UnSubscribed")

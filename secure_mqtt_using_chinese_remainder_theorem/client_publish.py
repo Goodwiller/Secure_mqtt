@@ -22,7 +22,7 @@ async def con():
     C = MQTTClient()
     await C.connect("mqtt://172.17.34.5:1884/")
     print("Connection process ended at ", time.time())
-    print("Subscription process started at ", time.time())	
+    print("Subscription process with network latency started at: ", time.time())
     await C.subscribe(
         [
             ("default", QOS_1),
@@ -33,8 +33,8 @@ async def con():
 
 async def test_coro(C):
 
-    print("publish Co_routine started...")
-    print("Publish process started at ", time.time())
+    # print("publish Co_routine started...")
+    print("Publish process with network latency started at ", time.time())
     tasks = [
         asyncio.ensure_future(C.publish("default", b"Hello")),
     ]
@@ -44,7 +44,7 @@ async def test_coro(C):
 async def test_coro2(C):
     #listening to all messages on the default channel
 
-    print("listen Co_routine started...")
+    # print("listen Co_routine started...")
     a = 1
     count = 0
     try:
@@ -56,10 +56,11 @@ async def test_coro2(C):
                 % (packet.variable_header.topic_name, str(packet.payload.data))
             )
             if (packet.payload.data[0] == 'N' and count == 0):
-                print("Subscription process ended and new group key acheived at ", time.time())
+                print("Subscription process with network latency ended at: ", time.time())	
                 count = count + 1
             else:
-                print("Publish process ended at ", time.time())
+                print("Publish process with network latency ended at ", time.time())
+                a = 2
         await C.unsubscribe(["default"])
         await C.disconnect()
     except ClientException as ce:

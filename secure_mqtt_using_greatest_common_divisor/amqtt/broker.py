@@ -286,7 +286,7 @@ class Broker:
         encoded=message.encode('utf-8')
         array=bytearray(encoded)
 
-        print("Subscription process ended for client at ", time.time())
+        print("Subscription computation ended for client at ", time.time())
         asyncio.create_task(self._broadcast_message(None, topic, array))
 
     async def handle_leave(self, topic):
@@ -339,14 +339,14 @@ class Broker:
             encoded=message.encode('utf-8')
             array=bytearray(encoded)
 
-
+            print("Rekey computation ended for client at ", time.time())
             asyncio.create_task(self._broadcast_message(None, topic, array))
         else:
             return
 
     async def handle_key_dis (self):
 
-        print("Started co routine for handling key requests")
+        # print("Started co routine for handling key requests")
         a = 1
         try:
             while a == 1:
@@ -361,8 +361,8 @@ class Broker:
                     public_key = public_key.replace("\\n", "\n")
                     public_key = public_key.replace("b\\'", "")
                     public_key = public_key.replace("\\'", "")
-                    print("client ID: ", client_id)
-                    print("Client's public key:" + "\n"  +  public_key)
+                    # print("client ID: ", client_id)
+                    # print("Client's public key:" + "\n"  +  public_key)
 
                     #Generate perma key for client
                     while True:
@@ -374,7 +374,7 @@ class Broker:
                     # for val in self._perma_key_table.values():
                     #     print(val)
 
-                    print("Generated Perma Key: ", perma_key)
+                    # print("Generated Perma Key: ", perma_key)
 
                     #Adding perma key to the table
                     self._perma_key_table[client_id] = perma_key
@@ -413,7 +413,7 @@ class Broker:
         return ciphertext
 
     async def decrypt_message(self, key_string, ciphertext):
-        print("Decrypting unicast message ....")
+        # print("Decrypting unicast message ....")
         key  = int(key_string).to_bytes(16, 'big')
         nonce = int(key_string).to_bytes(16, 'little')
         associateddata = b"ASCON"
@@ -446,7 +446,7 @@ class Broker:
 
         #created a client for handling key distribution
         self._client = MQTTClient(is_broker_client = True)
-        print("key distribution client created")
+        # print("key distribution client created")
 
         #Dictionary for storing perma keys
         self._perma_key_table = dict()
@@ -618,7 +618,7 @@ class Broker:
 
             #key distribution client connected to broker
             await self._client.connect(ip)
-            print("key distribution client connected to broker")
+            # print("key distribution client connected to broker")
 
             #key distribution client subscribed to KEYDIS channel
             await self._client.subscribe(
@@ -626,7 +626,7 @@ class Broker:
                     ("KEYDIS", QOS_1),
                 ]
             )
-            print("key distribution client subscribed to KEYDIS channel")
+            # print("key distribution client subscribed to KEYDIS channel")
 
             #starting co routine for handling key reuests
             asyncio.create_task(self.handle_key_dis())
@@ -951,7 +951,7 @@ class Broker:
                                 client_session, app_message.topic, app_message.data
                             )
                         else:
-                            print("Received unicast encrypted message to publish on \"" + app_message.topic + "\"")
+                            # print("Received unicast encrypted message to publish on \"" + app_message.topic + "\"")
                             app_message.data = await self.decrypt_message(self._channel_key_table[app_message.topic], app_message.data)
                             await self._broadcast_message(
                                 client_session, app_message.topic, app_message.data
@@ -1099,7 +1099,7 @@ class Broker:
         try:
             a_filter = subscription[0]
             if (a_filter != "KEYDIS"):
-                print("Subscription started for client at ", time.time())
+                print("Subscription computation started for client at ", time.time())
             if "#" in a_filter and not a_filter.endswith("#"):
                 # [MQTT-4.7.1-2] Wildcard character '#' is only allowed as last character in filter
                 return 0x80
@@ -1150,6 +1150,8 @@ class Broker:
         """
         deleted = 0
         try:
+            if (a_filter != "KEYDIS"):
+                print("Rekey computation started at ", time.time())
             subscriptions = self._subscriptions[a_filter]
             for index, (sub_session, qos) in enumerate(subscriptions):
                 if sub_session.client_id == session.client_id:
@@ -1339,7 +1341,7 @@ class Broker:
                 broadcast["qos"] = force_qos
             await self._broadcast_queue.put(broadcast)
         else:
-            print("Encrypting message before broadcasting for channel \"" + topic + "\"")
+            # print("Encrypting message before broadcasting for channel \"" + topic + "\"")
             data = await self.encrypt_data(data, self._channel_key_table[topic])
             # print(topic, data, self._channel_key_table[topic])
 

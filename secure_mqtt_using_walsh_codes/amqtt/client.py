@@ -162,7 +162,7 @@ class MQTTClient:
             (pub, priv) = rsa.newkeys(512)
             self.private_key = priv
             self.public_key = pub
-            print("Generated RSA keys for perma keys exchange")
+            # print("Generated RSA keys for perma keys exchange")
 
         #Table for channels subscribed by the client
         self.subscribed_channels = dict()
@@ -179,7 +179,7 @@ class MQTTClient:
         self.client_tasks = deque()
 
     async def decrypt_message(self, key_string, ciphertext):
-        print("Decrypting message....")
+        # print("Decrypting message....")
         key  = int(key_string).to_bytes(16, 'big')
         nonce = int(key_string).to_bytes(16, 'little')
         associateddata = b"ASCON"
@@ -190,7 +190,7 @@ class MQTTClient:
 
     async def encrypt_data(self, data, key_string):
 
-        print("Encrypting unicast message...")
+        # print("Encrypting unicast message...")
         key  = int(key_string).to_bytes(16, 'big')
         nonce = int(key_string).to_bytes(16, 'little')
         associateddata = b"ASCON"
@@ -256,7 +256,7 @@ class MQTTClient:
                 ]
             )
             self.subscribed_channels["KEYDIS"] = True
-            print("Subscribing to KEYDIS channel to get perma key")
+            # print("Subscribing to KEYDIS channel to get perma key")
 
             # Converting public key to readable form
             pem = self.public_key.save_pkcs1().decode('utf-8')
@@ -269,10 +269,10 @@ class MQTTClient:
                 asyncio.ensure_future(self.publish("KEYDIS", bytes(req,"ascii"))),
             ]
             await asyncio.wait(tasks)
-            print("sending request for perma key to KEY DIS client via KEYDIS channel")
+            # print("sending request for perma key to KEY DIS client via KEYDIS channel")
 
             #waiting for perma key response in the KEYDIS channel
-            print("waiting for perma key response in the KEYDIS channel")
+            # print("waiting for perma key response in the KEYDIS channel")
             a = 1
             try:
                 while a == 1:
@@ -292,17 +292,17 @@ class MQTTClient:
 
                         self.perma_key = int(decrypted_cipher)
                 
-                        print("perma key received...")
+                        # print("perma key received...")
                         a = 2
                     else:
                         continue
                 await self.unsubscribe(["KEYDIS"])
                 del self.subscribed_channels["KEYDIS"]
-                print("Unsubscribed KEYDIS channel")
+                # print("Unsubscribed KEYDIS channel")
             except ClientException as ce:
                 logger.error("Client exception: %s" % ce)
 
-            print("Client can now subscribe to other channels..")
+            # print("Client can now subscribe to other channels..")
             return connection_res
         
     async def disconnect(self):
@@ -571,15 +571,15 @@ class MQTTClient:
 
             # print(message)
             if len(message) > 1 and message[1] in self.subscribed_channels:
-                print(time.time())
+                print("Rekey computation started at: ",time.time())
                 if message[2] == "walsh_data":
                     walsh_code_curr = await self.generate_walsh_code(int(message[3]))
                     GK = await self.get_GK(self.walsh_rows[message[1]], walsh_code_curr, ast.literal_eval(message[4]), self.perma_key)
                 
                     self.channel_keys[message[1]] = GK
                     # print(self.channel_keys)
-                    print(time.time())
-                    print("New channel key added for channel \"" + message[1] + "\"")
+                    print("Rekey computation ended at: ",time.time())
+                    # print("New channel key added for channel \"" + message[1] + "\"")
                     deliver_task.result().publish_packet.payload.data = "New channel key added for channel \"" + message[1] + "\""
                 else:
                     if (message[3] == self.client_id):
@@ -591,7 +591,7 @@ class MQTTClient:
                 if channel != "KEYDIS":
                     channel_key = self.channel_keys[channel]
                      # Decrypt using channel key
-                    print("Received encrypted message on channel \"" + channel + "\"")
+                    # print("Received encrypted message on channel \"" + channel + "\"")
                     deliver_task.result().publish_packet.payload.data = await self.decrypt_message(channel_key, deliver_task.result().publish_packet.payload.data)
                     # print(deliver_task.result().publish_packet.payload.data, channel_key)
                     return deliver_task.result()
