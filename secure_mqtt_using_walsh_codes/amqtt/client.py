@@ -582,7 +582,9 @@ class MQTTClient:
                     # print("New channel key added for channel \"" + message[1] + "\"")
                     deliver_task.result().publish_packet.payload.data = "New channel key added for channel \"" + message[1] + "\""
                 else:
-                    if (message[3] == self.client_id):
+                    client_id = message[3]
+                    client_id = client_id.replace("\\\\", "\\")
+                    if (client_id == self.client_id):
                         self.walsh_rows[message[1]] = int(message[4])
                         deliver_task.result().publish_packet.payload.data = "New walsh row number alloted for channel \"" + message[1] + "\""
                 return deliver_task.result()

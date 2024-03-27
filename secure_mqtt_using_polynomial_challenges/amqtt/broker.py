@@ -182,37 +182,40 @@ class Broker:
         #print(self._perma_key_table)
 
         # Get keys of existing clients subscribed to the channel
-        for client in self._subscriptions[topic]:
-            if client[0].client_id in self._perma_key_table:
-                    keys.insert(len(keys), self._perma_key_table[client[0].client_id])
+        if topic in self._subscriptions:
+            for client in self._subscriptions[topic]:
+                if client[0].client_id in self._perma_key_table:
+                        keys.insert(len(keys), self._perma_key_table[client[0].client_id])
 
 
-        # Get new GK for channel 
-        GK = os.urandom(16)
-        GK = int.from_bytes(GK, byteorder="big")
+            # Get new GK for channel 
+            GK = os.urandom(16)
+            GK = int.from_bytes(GK, byteorder="big")
 
-        #Add GK to channel key table
-        self._channel_key_table[topic] = GK
+            #Add GK to channel key table
+            self._channel_key_table[topic] = GK
 
-        #Generate polynomial from keys
-        coefficients = np.poly(keys)
+            #Generate polynomial from keys
+            coefficients = np.poly(keys)
 
-        # Adding GK to the coefficients
-        coefficients[len(coefficients) - 1] = coefficients[len(coefficients) - 1] + GK
+            # Adding GK to the coefficients
+            coefficients[len(coefficients) - 1] = coefficients[len(coefficients) - 1] + GK
 
-        #Making message of the polynomial
-        polynomial_message = "||" + topic + "||"
+            #Making message of the polynomial
+            polynomial_message = "||" + topic + "||"
 
-        for ele in coefficients:
-            polynomial_message = polynomial_message + str(ele) + "||"
+            for ele in coefficients:
+                polynomial_message = polynomial_message + str(ele) + "||"
 
 
-        #Converting string to byte array to send
-        encoded=polynomial_message.encode('utf-8')
-        array=bytearray(encoded)
+            #Converting string to byte array to send
+            encoded=polynomial_message.encode('utf-8')
+            array=bytearray(encoded)
 
-        print("Subscription computation ended at ", time.time())
-        asyncio.create_task(self._broadcast_message(None, topic, array))
+            print("Subscription computation ended at ", time.time())
+            asyncio.create_task(self._broadcast_message(None, topic, array))
+        else:
+            return
 
     async def handle_leave(self, topic):
 

@@ -247,47 +247,50 @@ class Broker:
 
         keys = []
 
-        for client in self._subscriptions[topic]:
-            if client[0].client_id in self._perma_key_table:
-                keys.insert(len(keys), self._perma_key_table[client[0].client_id])
+        if topic in self._subscriptions:
+            for client in self._subscriptions[topic]:
+                if client[0].client_id in self._perma_key_table:
+                    keys.insert(len(keys), self._perma_key_table[client[0].client_id])
 
-        #Generate Gk
-        a = self.generate_random_integer(2, self.q - 1)
+            #Generate Gk
+            a = self.generate_random_integer(2, self.q - 1)
 
-        mu = a + self.q
+            mu = a + self.q
 
-        beta = self.generate_random_integer(2, self.p-1)
+            beta = self.generate_random_integer(2, self.p-1)
 
-        gamma = pow(beta, a, self.p)
+            gamma = pow(beta, a, self.p)
 
-        d_g = 1
-        for ele in keys:
-            d_g = d_g * ele
-        # print(d_g)
+            d_g = 1
+            for ele in keys:
+                d_g = d_g * ele
+            # print(d_g)
 
-        d, x, y = self.gcdExtended(mu, d_g)
+            d, x, y = self.gcdExtended(mu, d_g)
 
-        # print(self.p)
-        # print(self.q)
-        # print(a)
-        # print(mu)
-        # print(beta)
-        # print(gamma)
-        # print(d_g)
-        # print(d, x, y)
+            # print(self.p)
+            # print(self.q)
+            # print(a)
+            # print(mu)
+            # print(beta)
+            # print(gamma)
+            # print(d_g)
+            # print(d, x, y)
 
-        #Add GK to channel key table
-        self._channel_key_table[topic] = int(gamma)
+            #Add GK to channel key table
+            self._channel_key_table[topic] = int(gamma)
 
-        #Making message of the CRT
-        message = "||" + topic + "||" + str(x) + "||" + str(d) + "||" + str(self.q) + "||" + str(beta) + "||" + str(self.p) + "||"
+            #Making message of the CRT
+            message = "||" + topic + "||" + str(x) + "||" + str(d) + "||" + str(self.q) + "||" + str(beta) + "||" + str(self.p) + "||"
 
-        #Converting string to byte array to send
-        encoded=message.encode('utf-8')
-        array=bytearray(encoded)
+            #Converting string to byte array to send
+            encoded=message.encode('utf-8')
+            array=bytearray(encoded)
 
-        print("Subscription computation ended for client at ", time.time())
-        asyncio.create_task(self._broadcast_message(None, topic, array))
+            print("Subscription computation ended for client at ", time.time())
+            asyncio.create_task(self._broadcast_message(None, topic, array))
+        else:
+            return
 
     async def handle_leave(self, topic):
 

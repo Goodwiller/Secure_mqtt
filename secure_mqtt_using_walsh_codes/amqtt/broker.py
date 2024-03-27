@@ -244,48 +244,51 @@ class Broker:
         #print(self._perma_key_table)
 
         # Get keys of existing clients subscribed to the channel
-        for client in self._subscriptions[topic]:
-            if client[0].client_id in self._perma_key_table:
-                    keys.insert(len(keys), [self._perma_key_table[client[0].client_id], self._client_walsh_row[str(client[0].client_id)+"||"+str(topic)]])
+        if topic in self._subscriptions:
+            for client in self._subscriptions[topic]:
+                if client[0].client_id in self._perma_key_table:
+                        keys.insert(len(keys), [self._perma_key_table[client[0].client_id], self._client_walsh_row[str(client[0].client_id)+"||"+str(topic)]])
 
 
-        # print(keys)
+            # print(keys)
 
-        # Get new GK for channel 
-        GK = os.urandom(16)
-        GK = int.from_bytes(GK, byteorder="big")
+            # Get new GK for channel 
+            GK = os.urandom(16)
+            GK = int.from_bytes(GK, byteorder="big")
 
-        walsh_code_curr = await self.generate_walsh_code((self._topic_walsh_table_size[topic]))
-        # await self.display_walsh_code(walsh_code_curr)
+            walsh_code_curr = await self.generate_walsh_code((self._topic_walsh_table_size[topic]))
+            # await self.display_walsh_code(walsh_code_curr)
 
-        walsh_content = dict()
-        size = 0
-        for key in keys:
-            walsh_content[key[1]] = await self.encrypt_data_to_bin(str(GK), key[0])
-            # print(key[1], walsh_content[key[1]])
-            size = len(walsh_content[key[1]])
+            walsh_content = dict()
+            size = 0
+            for key in keys:
+                walsh_content[key[1]] = await self.encrypt_data_to_bin(str(GK), key[0])
+                # print(key[1], walsh_content[key[1]])
+                size = len(walsh_content[key[1]])
 
-        
-        walsh_message = await self.calculate_walsh_message(size, walsh_code_curr, walsh_content)
+            
+            walsh_message = await self.calculate_walsh_message(size, walsh_code_curr, walsh_content)
 
-        ans = str(walsh_message)
+            ans = str(walsh_message)
 
-        # print(ans)
-
-
-        #Add GK to channel key table
-        self._channel_key_table[topic] = GK
+            # print(ans)
 
 
-        #Making message of the polynomial
-        message = "||" + topic + "||" + "walsh_data" + "||" + str(self._topic_walsh_table_size[topic]) + "||" + str(walsh_message) + "||"
+            #Add GK to channel key table
+            self._channel_key_table[topic] = GK
 
-        #Converting string to byte array to send
-        encoded=message.encode('utf-8')
-        array=bytearray(encoded)
 
-        print("Subscription computation ended at ", time.time())
-        asyncio.create_task(self._broadcast_message(None, topic, array))
+            #Making message of the polynomial
+            message = "||" + topic + "||" + "walsh_data" + "||" + str(self._topic_walsh_table_size[topic]) + "||" + str(walsh_message) + "||"
+
+            #Converting string to byte array to send
+            encoded=message.encode('utf-8')
+            array=bytearray(encoded)
+
+            print("Subscription computation ended at ", time.time())
+            asyncio.create_task(self._broadcast_message(None, topic, array))
+        else:
+            return
 
     async def handle_leave(self, topic):
 
@@ -297,48 +300,51 @@ class Broker:
         #print(self._perma_key_table)
 
         # Get keys of existing clients subscribed to the channel
-        for client in self._subscriptions[topic]:
-            if client[0].client_id in self._perma_key_table:
-                    keys.insert(len(keys), [self._perma_key_table[client[0].client_id], self._client_walsh_row[str(client[0].client_id)+"||"+str(topic)]])
+        if topic in self._subscriptions:
+            for client in self._subscriptions[topic]:
+                if client[0].client_id in self._perma_key_table:
+                        keys.insert(len(keys), [self._perma_key_table[client[0].client_id], self._client_walsh_row[str(client[0].client_id)+"||"+str(topic)]])
 
 
-        # print(keys)
+            # print(keys)
 
-        # Get new GK for channel 
-        GK = os.urandom(16)
-        GK = int.from_bytes(GK, byteorder="big")
+            # Get new GK for channel 
+            GK = os.urandom(16)
+            GK = int.from_bytes(GK, byteorder="big")
 
-        walsh_code_curr = await self.generate_walsh_code((self._topic_walsh_table_size[topic]))
-        await self.display_walsh_code(walsh_code_curr)
+            walsh_code_curr = await self.generate_walsh_code((self._topic_walsh_table_size[topic]))
+            await self.display_walsh_code(walsh_code_curr)
 
-        walsh_content = dict()
-        size = 0
-        for key in keys:
-            walsh_content[key[1]] = await self.encrypt_data_to_bin(str(GK), key[0])
-            # print(key[1], walsh_content[key[1]])
-            size = len(walsh_content[key[1]])
+            walsh_content = dict()
+            size = 0
+            for key in keys:
+                walsh_content[key[1]] = await self.encrypt_data_to_bin(str(GK), key[0])
+                # print(key[1], walsh_content[key[1]])
+                size = len(walsh_content[key[1]])
 
-        
-        walsh_message = await self.calculate_walsh_message(size, walsh_code_curr, walsh_content)
+            
+            walsh_message = await self.calculate_walsh_message(size, walsh_code_curr, walsh_content)
 
-        ans = str(walsh_message)
+            ans = str(walsh_message)
 
-        # print(ans)
-
-
-        #Add GK to channel key table
-        self._channel_key_table[topic] = GK
+            # print(ans)
 
 
-        #Making message of the polynomial
-        message = "||" + topic + "||" + "walsh_data" + "||" + str(self._topic_walsh_table_size[topic]) + "||" + str(walsh_message) + "||"
+            #Add GK to channel key table
+            self._channel_key_table[topic] = GK
 
-        #Converting string to byte array to send
-        encoded=message.encode('utf-8')
-        array=bytearray(encoded)
 
-        print("Rekey computation ended for client at ", time.time())
-        asyncio.create_task(self._broadcast_message(None, topic, array))
+            #Making message of the polynomial
+            message = "||" + topic + "||" + "walsh_data" + "||" + str(self._topic_walsh_table_size[topic]) + "||" + str(walsh_message) + "||"
+
+            #Converting string to byte array to send
+            encoded=message.encode('utf-8')
+            array=bytearray(encoded)
+
+            print("Rekey computation ended for client at ", time.time())
+            asyncio.create_task(self._broadcast_message(None, topic, array))
+        else:
+            return
 
     async def handle_key_dis (self):
 

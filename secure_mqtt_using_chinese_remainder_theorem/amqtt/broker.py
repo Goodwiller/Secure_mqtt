@@ -236,31 +236,34 @@ class Broker:
 
         keys = []
 
-        for client in self._subscriptions[topic]:
-            if client[0].client_id in self._perma_key_table:
-                keys.insert(len(keys), self._perma_key_table[client[0].client_id])
+        if topic in self._subscriptions:
+            for client in self._subscriptions[topic]:
+                if client[0].client_id in self._perma_key_table:
+                    keys.insert(len(keys), self._perma_key_table[client[0].client_id])
 
-        #Generate Gk
-        gk = self.generate_random_integer(100000000000000000000000000000000000, self.q - 1)
-
-
-        mu = self.initialize_key_setup(keys)
-
-        gamma = gk * mu
+            #Generate Gk
+            gk = self.generate_random_integer(100000000000000000000000000000000000, self.q - 1)
 
 
-        #Add GK to channel key table
-        self._channel_key_table[topic] = gk
+            mu = self.initialize_key_setup(keys)
 
-        #Making message of the CRT
-        crt_message = "||" + topic + "||" + str(gamma) + "||"
+            gamma = gk * mu
 
-        #Converting string to byte array to send
-        encoded=crt_message.encode('utf-8')
-        array=bytearray(encoded)
 
-        print("Subscription computation ended at ", time.time())
-        asyncio.create_task(self._broadcast_message(None, topic, array))
+            #Add GK to channel key table
+            self._channel_key_table[topic] = gk
+
+            #Making message of the CRT
+            crt_message = "||" + topic + "||" + str(gamma) + "||"
+
+            #Converting string to byte array to send
+            encoded=crt_message.encode('utf-8')
+            array=bytearray(encoded)
+
+            print("Subscription computation ended at ", time.time())
+            asyncio.create_task(self._broadcast_message(None, topic, array))
+        else:
+            return
 
     async def handle_leave(self, topic):
 

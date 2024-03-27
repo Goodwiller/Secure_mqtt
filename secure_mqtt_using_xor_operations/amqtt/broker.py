@@ -225,12 +225,14 @@ class Broker:
 
             # print(hash_message)
 
-        #Converting string to byte array to send
-        encoded=hash_message.encode('utf-8')
-        array=bytearray(encoded)
+            #Converting string to byte array to send
+            encoded=hash_message.encode('utf-8')
+            array=bytearray(encoded)
 
-        print("Subscription computation ended at ", time.time())
-        asyncio.create_task(self._broadcast_message(None, topic, array))
+            print("Subscription computation ended at ", time.time())
+            asyncio.create_task(self._broadcast_message(None, topic, array))
+        else:
+            return
 
     async def handle_leave(self, topic):
 
