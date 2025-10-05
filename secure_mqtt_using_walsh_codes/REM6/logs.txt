@@ -1,0 +1,304 @@
+Rekey computation started at:  1759673091.8006322
+Rekey computation ended at:  1759673091.800711
+default => New channel key added for channel "default"
+Subscription process with network latency ended at:  1759673091.800844 
+Rekey computation started at:  1759673106.5494876
+Rekey computation ended at:  1759673106.5499153
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673107.2023056
+Rekey computation ended at:  1759673107.202601
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673107.9179635
+Rekey computation ended at:  1759673107.9197345
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673108.6446161
+Rekey computation ended at:  1759673108.6463232
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673109.5703697
+Rekey computation ended at:  1759673109.5720372
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673110.2255683
+Rekey computation ended at:  1759673110.2259164
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673110.838419
+Rekey computation ended at:  1759673110.8387363
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673111.4582655
+Rekey computation ended at:  1759673111.4583528
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673112.0579972
+Rekey computation ended at:  1759673112.0580835
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673112.6748495
+Rekey computation ended at:  1759673112.674935
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673113.3782132
+Rekey computation ended at:  1759673113.3786192
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673114.0101557
+Rekey computation ended at:  1759673114.0102963
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673114.7262676
+Rekey computation ended at:  1759673114.726441
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673115.3993688
+Rekey computation ended at:  1759673115.4362295
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673116.0715425
+Rekey computation ended at:  1759673116.071667
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673116.6977942
+Rekey computation ended at:  1759673116.6984856
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673117.3200965
+Rekey computation ended at:  1759673117.3203666
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673117.9514327
+Rekey computation ended at:  1759673117.9515831
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673118.6222212
+Rekey computation ended at:  1759673118.623399
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673119.4318678
+Rekey computation ended at:  1759673119.4322011
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673120.064372
+Rekey computation ended at:  1759673120.0644882
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673120.7484298
+Rekey computation ended at:  1759673120.7487664
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673121.3817732
+Rekey computation ended at:  1759673121.3820662
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673122.0273845
+Rekey computation ended at:  1759673122.0275095
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673122.7348897
+Rekey computation ended at:  1759673122.7349968
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673123.3636196
+Rekey computation ended at:  1759673123.3637397
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673124.0733373
+Rekey computation ended at:  1759673124.0737567
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673124.7050562
+Rekey computation ended at:  1759673124.7052228
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673125.3643975
+Rekey computation ended at:  1759673125.3645253
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673126.0294955
+Rekey computation ended at:  1759673126.029705
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673126.6925447
+Rekey computation ended at:  1759673126.6926677
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673127.429149
+Rekey computation ended at:  1759673127.4293296
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673128.0760133
+Rekey computation ended at:  1759673128.0761452
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673128.7104933
+Rekey computation ended at:  1759673128.7134838
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673129.4114516
+Rekey computation ended at:  1759673129.4306006
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673130.125952
+Rekey computation ended at:  1759673130.126134
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673130.7934937
+Rekey computation ended at:  1759673130.7941265
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673131.4598405
+Rekey computation ended at:  1759673131.460182
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673132.0991163
+Rekey computation ended at:  1759673132.1009185
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673132.780847
+Rekey computation ended at:  1759673132.7811415
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673133.4317973
+Rekey computation ended at:  1759673133.4341218
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673134.0683317
+Rekey computation ended at:  1759673134.0684643
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673134.7309318
+Rekey computation ended at:  1759673134.7311199
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673135.435818
+Rekey computation ended at:  1759673135.4361236
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673136.1327295
+Rekey computation ended at:  1759673136.1330724
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673136.873969
+Rekey computation ended at:  1759673136.8741243
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673137.5851636
+Rekey computation ended at:  1759673137.5876577
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673138.2811887
+Rekey computation ended at:  1759673138.28151
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673138.936962
+Rekey computation ended at:  1759673138.9399016
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673139.569169
+Rekey computation ended at:  1759673139.5693462
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673140.2731557
+Rekey computation ended at:  1759673140.2738488
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673140.9619105
+Rekey computation ended at:  1759673140.9622116
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673141.655953
+Rekey computation ended at:  1759673141.6562605
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673142.2732658
+Rekey computation ended at:  1759673142.2750108
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673142.9009874
+Rekey computation ended at:  1759673142.9014173
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673143.552792
+Rekey computation ended at:  1759673143.553976
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673144.1709332
+Rekey computation ended at:  1759673144.1710973
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673144.8788388
+Rekey computation ended at:  1759673144.8795714
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673145.570968
+Rekey computation ended at:  1759673145.5711527
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673146.249892
+Rekey computation ended at:  1759673146.2500172
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673146.8869624
+Rekey computation ended at:  1759673146.88708
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673147.5703135
+Rekey computation ended at:  1759673147.5704892
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673148.255555
+Rekey computation ended at:  1759673148.2567642
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673148.8741343
+Rekey computation ended at:  1759673148.874537
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673149.5398986
+Rekey computation ended at:  1759673149.541632
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673150.276065
+Rekey computation ended at:  1759673150.2766876
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673150.9054034
+Rekey computation ended at:  1759673150.9055235
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673151.5181727
+Rekey computation ended at:  1759673151.5185423
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673152.22827
+Rekey computation ended at:  1759673152.2287223
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673152.8752518
+Rekey computation ended at:  1759673152.8753898
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673153.5037582
+Rekey computation ended at:  1759673153.503884
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673154.1465464
+Rekey computation ended at:  1759673154.146947
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673154.751698
+Rekey computation ended at:  1759673154.75205
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673155.3894274
+Rekey computation ended at:  1759673155.3897476
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673156.0066555
+Rekey computation ended at:  1759673156.006801
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673156.748159
+Rekey computation ended at:  1759673156.7491455
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673157.4152913
+Rekey computation ended at:  1759673157.4159875
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673158.1418343
+Rekey computation ended at:  1759673158.1421096
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673158.7836695
+Rekey computation ended at:  1759673158.7842307
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673159.462926
+Rekey computation ended at:  1759673159.4631245
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673160.1521966
+Rekey computation ended at:  1759673160.15305
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673160.810962
+Rekey computation ended at:  1759673160.8111925
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673161.453856
+Rekey computation ended at:  1759673161.454036
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673162.143936
+Rekey computation ended at:  1759673162.1447406
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673162.8521237
+Rekey computation ended at:  1759673162.8527224
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673163.579877
+Rekey computation ended at:  1759673163.580737
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673164.216208
+Rekey computation ended at:  1759673164.216333
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673164.8367596
+Rekey computation ended at:  1759673164.8368802
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673165.5096147
+Rekey computation ended at:  1759673165.5098026
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673166.201084
+Rekey computation ended at:  1759673166.201767
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673166.8491309
+Rekey computation ended at:  1759673166.8496692
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673167.4692597
+Rekey computation ended at:  1759673167.469391
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673168.2215397
+Rekey computation ended at:  1759673168.2216563
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673168.8828533
+Rekey computation ended at:  1759673168.8838894
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673169.5312827
+Rekey computation ended at:  1759673169.531469
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673170.2151291
+Rekey computation ended at:  1759673170.215448
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673170.8516088
+Rekey computation ended at:  1759673170.8522172
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673171.4792309
+Rekey computation ended at:  1759673171.480064
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673172.1319194
+Rekey computation ended at:  1759673172.1322336
+default => New channel key added for channel "default"
+Rekey computation started at:  1759673172.7512758
+Rekey computation ended at:  1759673172.7514706
+default => New channel key added for channel "default"

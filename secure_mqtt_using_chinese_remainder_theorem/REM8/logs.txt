@@ -1,0 +1,605 @@
+New Connection acquired from  10.31.226.215 62173 at  1759680959.3219159
+New Connection acquired from  10.31.226.215 62178 at  1759680961.9955204
+Encryption of permakey done with public key of client and sent at  1759680962.0518806
+Subscription started for client at  1759680962.0553036
+Subscription computation ended at  1759680962.0555966
+New Connection acquired from  10.31.226.215 62184 at  1759680967.4193237
+Encryption of permakey done with public key of client and sent at  1759680967.4415166
+Subscription started for client at  1759680967.4445622
+Subscription computation ended at  1759680967.4449766
+Rekey computation started at  1759680967.4461606
+Rekey computation ended for client at  1759680967.4465177
+New Connection acquired from  10.31.226.215 62189 at  1759680968.0709448
+Encryption of permakey done with public key of client and sent at  1759680968.095617
+Subscription started for client at  1759680968.0979676
+Subscription computation ended at  1759680968.0982604
+Rekey computation started at  1759680968.0992072
+Rekey computation ended for client at  1759680968.09946
+New Connection acquired from  10.31.226.215 62194 at  1759680968.7871149
+Encryption of permakey done with public key of client and sent at  1759680968.8117068
+Subscription started for client at  1759680968.8141434
+Subscription computation ended at  1759680968.8144646
+Rekey computation started at  1759680968.815383
+Rekey computation ended for client at  1759680968.8156111
+New Connection acquired from  10.31.226.215 62199 at  1759680969.4564695
+Encryption of permakey done with public key of client and sent at  1759680969.4794462
+Subscription started for client at  1759680969.4818857
+Subscription computation ended at  1759680969.4821942
+Rekey computation started at  1759680969.483041
+Rekey computation ended for client at  1759680969.4833024
+New Connection acquired from  10.31.226.215 62204 at  1759680970.1301403
+Encryption of permakey done with public key of client and sent at  1759680970.1565986
+Subscription started for client at  1759680970.1590295
+Subscription computation ended at  1759680970.1593897
+Rekey computation started at  1759680970.1603084
+Rekey computation ended for client at  1759680970.160993
+New Connection acquired from  10.31.226.215 62209 at  1759680970.7916126
+Encryption of permakey done with public key of client and sent at  1759680970.8149314
+Subscription started for client at  1759680970.8172946
+Subscription computation ended at  1759680970.8175902
+Rekey computation started at  1759680970.8184278
+Rekey computation ended for client at  1759680970.818854
+New Connection acquired from  10.31.226.215 62214 at  1759680971.414163
+Encryption of permakey done with public key of client and sent at  1759680971.435564
+Subscription started for client at  1759680971.437977
+Subscription computation ended at  1759680971.4383116
+Rekey computation started at  1759680971.439268
+Rekey computation ended for client at  1759680971.4394863
+New Connection acquired from  10.31.226.215 62219 at  1759680972.060392
+Encryption of permakey done with public key of client and sent at  1759680972.087557
+Subscription started for client at  1759680972.08994
+Subscription computation ended at  1759680972.090258
+Rekey computation started at  1759680972.0919685
+Rekey computation ended for client at  1759680972.0924215
+New Connection acquired from  10.31.226.215 62224 at  1759680972.8687427
+Encryption of permakey done with public key of client and sent at  1759680972.892518
+Subscription started for client at  1759680972.894996
+Subscription computation ended at  1759680972.8953354
+Rekey computation started at  1759680972.8961864
+Rekey computation ended for client at  1759680972.8964026
+New Connection acquired from  10.31.226.215 62230 at  1759680973.5384011
+Encryption of permakey done with public key of client and sent at  1759680973.5620155
+Subscription started for client at  1759680973.5649903
+Subscription computation ended at  1759680973.5652885
+Rekey computation started at  1759680973.566383
+Rekey computation ended for client at  1759680973.56688
+New Connection acquired from  10.31.226.215 62236 at  1759680974.2097967      
+Encryption of permakey done with public key of client and sent at  1759680974.2344737
+Subscription started for client at  1759680974.2367296
+Subscription computation ended at  1759680974.2370408
+Rekey computation started at  1759680974.2378857
+Rekey computation ended for client at  1759680974.2381742
+New Connection acquired from  10.31.226.215 62241 at  1759680974.9809387      
+Encryption of permakey done with public key of client and sent at  1759680975.005244
+Subscription started for client at  1759680975.0082657
+Subscription computation ended at  1759680975.008601
+Rekey computation started at  1759680975.009469
+Rekey computation ended for client at  1759680975.0098271
+New Connection acquired from  10.31.226.215 62246 at  1759680975.6114025      
+Encryption of permakey done with public key of client and sent at  1759680975.6343236
+Subscription started for client at  1759680975.6368203
+Subscription computation ended at  1759680975.6371417
+Rekey computation started at  1759680975.638015
+Rekey computation ended for client at  1759680975.6383173
+New Connection acquired from  10.31.226.215 62251 at  1759680976.3632693
+Encryption of permakey done with public key of client and sent at  1759680976.3908358
+Subscription started for client at  1759680976.429485
+Subscription computation ended at  1759680976.4407187
+Rekey computation started at  1759680976.441736
+Rekey computation ended for client at  1759680976.4645505
+New Connection acquired from  10.31.226.215 62256 at  1759680977.1934388
+Encryption of permakey done with public key of client and sent at  1759680977.2190392
+Subscription started for client at  1759680977.222094
+Subscription computation ended at  1759680977.2224376
+Rekey computation started at  1759680977.223556
+Rekey computation ended for client at  1759680977.2238936
+New Connection acquired from  10.31.226.215 62261 at  1759680977.9917302
+Encryption of permakey done with public key of client and sent at  1759680978.0148082
+Subscription started for client at  1759680978.0174258
+Subscription computation ended at  1759680978.0177267
+Rekey computation started at  1759680978.0190358
+Rekey computation ended for client at  1759680978.0197074
+New Connection acquired from  10.31.226.215 62267 at  1759680978.6516516
+Encryption of permakey done with public key of client and sent at  1759680978.6755962
+Subscription started for client at  1759680978.6782806
+Subscription computation ended at  1759680978.6786034
+Rekey computation started at  1759680978.6795084
+Rekey computation ended for client at  1759680978.679738
+New Connection acquired from  10.31.226.215 62272 at  1759680979.318298
+Encryption of permakey done with public key of client and sent at  1759680979.342463
+Subscription started for client at  1759680979.3451543
+Subscription computation ended at  1759680979.345483
+Rekey computation started at  1759680979.3464565
+Rekey computation ended for client at  1759680979.346696
+New Connection acquired from  10.31.226.215 62277 at  1759680979.9346993
+Encryption of permakey done with public key of client and sent at  1759680979.9568095
+Subscription started for client at  1759680979.9591985
+Subscription computation ended at  1759680979.9594867
+Rekey computation started at  1759680979.9604125
+Rekey computation ended for client at  1759680979.9615498
+New Connection acquired from  10.31.226.215 62283 at  1759680980.5446646
+Encryption of permakey done with public key of client and sent at  1759680980.5701737
+Subscription started for client at  1759680980.5729246
+Subscription computation ended at  1759680980.573294
+Rekey computation started at  1759680980.5742161
+Rekey computation ended for client at  1759680980.5744944
+New Connection acquired from  10.31.226.215 62288 at  1759680981.186819
+Encryption of permakey done with public key of client and sent at  1759680981.208801
+Subscription started for client at  1759680981.2113633
+Subscription computation ended at  1759680981.2116847
+Rekey computation started at  1759680981.2126844
+Rekey computation ended for client at  1759680981.2129366
+New Connection acquired from  10.31.226.215 62293 at  1759680981.8025475
+Encryption of permakey done with public key of client and sent at  1759680981.8262928
+Subscription started for client at  1759680981.8285081
+Subscription computation ended at  1759680981.8287818
+Rekey computation started at  1759680981.8299358
+Rekey computation ended for client at  1759680981.830504
+New Connection acquired from  10.31.226.215 62298 at  1759680982.6460342
+Encryption of permakey done with public key of client and sent at  1759680982.6670258
+Subscription started for client at  1759680982.6693602
+Subscription computation ended at  1759680982.6696777
+Rekey computation started at  1759680982.6705272
+Rekey computation ended for client at  1759680982.670751
+New Connection acquired from  10.31.226.215 62303 at  1759680983.275022
+Encryption of permakey done with public key of client and sent at  1759680983.3002472
+Subscription started for client at  1759680983.3027086
+Subscription computation ended at  1759680983.3030488
+Rekey computation started at  1759680983.3040676
+Rekey computation ended for client at  1759680983.3043134
+New Connection acquired from  10.31.226.215 62308 at  1759680983.953548
+Encryption of permakey done with public key of client and sent at  1759680983.9804137
+Subscription started for client at  1759680983.982634
+Subscription computation ended at  1759680983.9829626
+Rekey computation started at  1759680983.9838707
+Rekey computation ended for client at  1759680983.9846427
+New Connection acquired from  10.31.226.215 62314 at  1759680984.602333
+Encryption of permakey done with public key of client and sent at  1759680984.6277509
+Subscription started for client at  1759680984.6304355
+Subscription computation ended at  1759680984.6307416
+Rekey computation started at  1759680984.6320262
+Rekey computation ended for client at  1759680984.632302
+New Connection acquired from  10.31.226.215 62319 at  1759680985.266966
+Encryption of permakey done with public key of client and sent at  1759680985.294294
+Subscription started for client at  1759680985.297156
+Subscription computation ended at  1759680985.2975
+Rekey computation started at  1759680985.2984552
+Rekey computation ended for client at  1759680985.2988212
+New Connection acquired from  10.31.226.215 62324 at  1759680985.9539816
+Encryption of permakey done with public key of client and sent at  1759680985.9772277
+Subscription started for client at  1759680985.9797986
+Subscription computation ended at  1759680985.9801068
+Rekey computation started at  1759680985.9809368
+Rekey computation ended for client at  1759680985.9812188
+New Connection acquired from  10.31.226.215 62330 at  1759680986.7868826
+Encryption of permakey done with public key of client and sent at  1759680986.8098521
+Subscription started for client at  1759680986.8130734
+Subscription computation ended at  1759680986.8133795
+Rekey computation started at  1759680986.8144493
+Rekey computation ended for client at  1759680986.8149111
+New Connection acquired from  10.31.226.215 62335 at  1759680987.3911119
+Encryption of permakey done with public key of client and sent at  1759680987.4121914
+Subscription started for client at  1759680987.4158697
+Subscription computation ended at  1759680987.4162428
+Rekey computation started at  1759680987.4172513
+Rekey computation ended for client at  1759680987.4175227
+New Connection acquired from  10.31.226.215 62341 at  1759680988.0249493
+Encryption of permakey done with public key of client and sent at  1759680988.048416
+Subscription started for client at  1759680988.0506988
+Subscription computation ended at  1759680988.0509925
+Rekey computation started at  1759680988.0518186
+Rekey computation ended for client at  1759680988.0520535
+New Connection acquired from  10.31.226.215 62346 at  1759680988.687941
+Encryption of permakey done with public key of client and sent at  1759680988.714718
+Subscription started for client at  1759680988.7173226
+Subscription computation ended at  1759680988.7176523
+Rekey computation started at  1759680988.7185867
+Rekey computation ended for client at  1759680988.7189596
+New Connection acquired from  10.31.226.215 62351 at  1759680989.3330584
+Encryption of permakey done with public key of client and sent at  1759680989.35717
+Subscription started for client at  1759680989.359894
+Subscription computation ended at  1759680989.360237
+Rekey computation started at  1759680989.3611934
+Rekey computation ended for client at  1759680989.3614407
+New Connection acquired from  10.31.226.215 62356 at  1759680990.0383096
+Encryption of permakey done with public key of client and sent at  1759680990.061596
+Subscription started for client at  1759680990.0988045
+Subscription computation ended at  1759680990.1040082
+Rekey computation started at  1759680990.1374257
+Rekey computation ended for client at  1759680990.1394718
+New Connection acquired from  10.31.226.215 62362 at  1759680990.978151
+Encryption of permakey done with public key of client and sent at  1759680991.0001924
+Subscription started for client at  1759680991.0024953
+Subscription computation ended at  1759680991.0028055
+Rekey computation started at  1759680991.0036745
+Rekey computation ended for client at  1759680991.0039651
+New Connection acquired from  10.31.226.215 62367 at  1759680991.601069
+Encryption of permakey done with public key of client and sent at  1759680991.6275616
+Subscription started for client at  1759680991.6311634
+Subscription computation ended at  1759680991.6317658
+Rekey computation started at  1759680991.6333578
+Rekey computation ended for client at  1759680991.6338687
+New Connection acquired from  10.31.226.215 62372 at  1759680992.2199297
+Encryption of permakey done with public key of client and sent at  1759680992.2441556
+Subscription started for client at  1759680992.2466958
+Subscription computation ended at  1759680992.247039
+Rekey computation started at  1759680992.2479987
+Rekey computation ended for client at  1759680992.248304
+New Connection acquired from  10.31.226.215 62377 at  1759680992.865551
+Encryption of permakey done with public key of client and sent at  1759680992.8883967
+Subscription started for client at  1759680992.8909118
+Subscription computation ended at  1759680992.8912387
+Rekey computation started at  1759680992.8930345
+Rekey computation ended for client at  1759680992.8932784
+New Connection acquired from  10.31.226.215 62381 at  1759680993.564974
+Encryption of permakey done with public key of client and sent at  1759680993.5890107
+Subscription started for client at  1759680993.5915742
+Subscription computation ended at  1759680993.591902
+Rekey computation started at  1759680993.5928328
+Rekey computation ended for client at  1759680993.5930853
+New Connection acquired from  10.31.226.215 62389 at  1759680994.2390313
+Encryption of permakey done with public key of client and sent at  1759680994.2624364
+Subscription started for client at  1759680994.2649245
+Subscription computation ended at  1759680994.2652564
+Rekey computation started at  1759680994.266203
+Rekey computation ended for client at  1759680994.266492
+New Connection acquired from  10.31.226.215 62394 at  1759680994.899356
+Encryption of permakey done with public key of client and sent at  1759680994.92397
+Subscription started for client at  1759680994.926659
+Subscription computation ended at  1759680994.9270308
+Rekey computation started at  1759680994.9281573
+Rekey computation ended for client at  1759680994.928487
+New Connection acquired from  10.31.226.215 62402 at  1759680995.5326798
+Encryption of permakey done with public key of client and sent at  1759680995.5557792
+Subscription started for client at  1759680995.558087
+Subscription computation ended at  1759680995.5583966
+Rekey computation started at  1759680995.5592873
+Rekey computation ended for client at  1759680995.5597188
+New Connection acquired from  10.31.226.215 62408 at  1759680996.1669283
+Encryption of permakey done with public key of client and sent at  1759680996.1898503
+Subscription started for client at  1759680996.1926632
+Subscription computation ended at  1759680996.1930351
+Rekey computation started at  1759680996.193988
+Rekey computation ended for client at  1759680996.1942039
+New Connection acquired from  10.31.226.215 62413 at  1759680996.8367512
+Encryption of permakey done with public key of client and sent at  1759680996.8585958
+Subscription started for client at  1759680996.8611915
+Subscription computation ended at  1759680996.8615282
+Rekey computation started at  1759680996.8626342
+Rekey computation ended for client at  1759680996.862988
+New Connection acquired from  10.31.226.215 62418 at  1759680997.5078492
+Encryption of permakey done with public key of client and sent at  1759680997.5350177
+Subscription started for client at  1759680997.539369
+Subscription computation ended at  1759680997.539665
+Rekey computation started at  1759680997.5406494
+Rekey computation ended for client at  1759680997.5410388
+New Connection acquired from  10.31.226.215 62424 at  1759680998.2976005
+Encryption of permakey done with public key of client and sent at  1759680998.3209689
+Subscription started for client at  1759680998.3242786
+Subscription computation ended at  1759680998.3245807
+Rekey computation started at  1759680998.3254957
+Rekey computation ended for client at  1759680998.3259141
+New Connection acquired from  10.31.226.215 62429 at  1759680998.9661217
+Encryption of permakey done with public key of client and sent at  1759680998.9919534
+Subscription started for client at  1759680998.9947522
+Subscription computation ended at  1759680998.995074
+Rekey computation started at  1759680998.9960306
+Rekey computation ended for client at  1759680998.996431
+New Connection acquired from  10.31.226.215 62434 at  1759680999.6638203
+Encryption of permakey done with public key of client and sent at  1759680999.6878324
+Subscription started for client at  1759680999.691442
+Subscription computation ended at  1759680999.6919749
+Rekey computation started at  1759680999.6931188
+Rekey computation ended for client at  1759680999.6935182
+New Connection acquired from  10.31.226.215 62437 at  1759681000.4641795
+Encryption of permakey done with public key of client and sent at  1759681000.490588
+Subscription started for client at  1759681000.4940858
+Subscription computation ended at  1759681000.4944198
+Rekey computation started at  1759681000.4954531
+Rekey computation ended for client at  1759681000.4957237
+New Connection acquired from  10.31.226.215 62444 at  1759681001.145091
+Encryption of permakey done with public key of client and sent at  1759681001.16851
+Subscription started for client at  1759681001.1731482
+Subscription computation ended at  1759681001.173528
+Rekey computation started at  1759681001.1755362
+Rekey computation ended for client at  1759681001.1758304
+New Connection acquired from  10.31.226.215 62449 at  1759681001.8421686
+Encryption of permakey done with public key of client and sent at  1759681001.8659241
+Subscription started for client at  1759681001.868293
+Subscription computation ended at  1759681001.868906
+Rekey computation started at  1759681001.8699584
+Rekey computation ended for client at  1759681001.8702605
+New Connection acquired from  10.31.226.215 62455 at  1759681002.525884
+Encryption of permakey done with public key of client and sent at  1759681002.548314
+Subscription started for client at  1759681002.551054
+Subscription computation ended at  1759681002.551407
+Rekey computation started at  1759681002.552683
+Rekey computation ended for client at  1759681002.553064
+New Connection acquired from  10.31.226.215 62460 at  1759681003.1470637
+Encryption of permakey done with public key of client and sent at  1759681003.1696343
+Subscription started for client at  1759681003.1732407
+Subscription computation ended at  1759681003.1740468
+Rekey computation started at  1759681003.1759589
+Rekey computation ended for client at  1759681003.1764328
+New Connection acquired from  10.31.226.215 62465 at  1759681003.8005016
+Encryption of permakey done with public key of client and sent at  1759681003.8246877
+Subscription started for client at  1759681003.8270795
+Subscription computation ended at  1759681003.8273911
+Rekey computation started at  1759681003.8300874
+Rekey computation ended for client at  1759681003.8319137
+New Connection acquired from  10.31.226.215 62470 at  1759681004.4076087
+Encryption of permakey done with public key of client and sent at  1759681004.4285262
+Subscription started for client at  1759681004.4334967
+Subscription computation ended at  1759681004.4338052
+Rekey computation started at  1759681004.4346483
+Rekey computation ended for client at  1759681004.4350376
+New Connection acquired from  10.31.226.215 62475 at  1759681005.0453916
+Encryption of permakey done with public key of client and sent at  1759681005.0699706
+Subscription started for client at  1759681005.0724983
+Subscription computation ended at  1759681005.0728295
+Rekey computation started at  1759681005.0737233
+Rekey computation ended for client at  1759681005.0740173
+New Connection acquired from  10.31.226.215 62480 at  1759681005.674248
+Encryption of permakey done with public key of client and sent at  1759681005.6954844
+Subscription started for client at  1759681005.698657
+Subscription computation ended at  1759681005.6990151
+Rekey computation started at  1759681005.700172
+Rekey computation ended for client at  1759681005.7004564
+New Connection acquired from  10.31.226.215 62485 at  1759681006.3389332
+Encryption of permakey done with public key of client and sent at  1759681006.3640893
+Subscription started for client at  1759681006.366696
+Subscription computation ended at  1759681006.3669837
+Rekey computation started at  1759681006.3677924
+Rekey computation ended for client at  1759681006.3681052
+New Connection acquired from  10.31.226.215 62490 at  1759681006.9696677
+Encryption of permakey done with public key of client and sent at  1759681006.9960065
+Subscription started for client at  1759681006.9991968
+Subscription computation ended at  1759681006.999488
+Rekey computation started at  1759681007.0003788
+Rekey computation ended for client at  1759681007.0006773
+New Connection acquired from  10.31.226.215 62495 at  1759681007.578662
+Encryption of permakey done with public key of client and sent at  1759681007.6032882
+Subscription started for client at  1759681007.605599
+Subscription computation ended at  1759681007.6059463
+Rekey computation started at  1759681007.6070278
+Rekey computation ended for client at  1759681007.6075556
+New Connection acquired from  10.31.226.215 62500 at  1759681008.2387264
+Encryption of permakey done with public key of client and sent at  1759681008.2670555
+Subscription started for client at  1759681008.2694085
+Subscription computation ended at  1759681008.2697127
+Rekey computation started at  1759681008.270667
+Rekey computation ended for client at  1759681008.2711852
+New Connection acquired from  10.31.226.215 62505 at  1759681008.8866394
+Encryption of permakey done with public key of client and sent at  1759681008.9114869
+Subscription started for client at  1759681008.9139357
+Subscription computation ended at  1759681008.9143126
+Rekey computation started at  1759681008.9152656
+Rekey computation ended for client at  1759681008.9155135
+New Connection acquired from  10.31.226.215 62511 at  1759681009.5195227
+Encryption of permakey done with public key of client and sent at  1759681009.5407798
+Subscription started for client at  1759681009.5446258
+Subscription computation ended at  1759681009.5451646
+Rekey computation started at  1759681009.5465488
+Rekey computation ended for client at  1759681009.547039
+New Connection acquired from  10.31.226.215 62516 at  1759681010.1545918
+Encryption of permakey done with public key of client and sent at  1759681010.1795404
+Subscription started for client at  1759681010.182196
+Subscription computation ended at  1759681010.182555
+Rekey computation started at  1759681010.183489
+Rekey computation ended for client at  1759681010.1837656
+New Connection acquired from  10.31.226.215 62521 at  1759681010.932734
+Encryption of permakey done with public key of client and sent at  1759681010.9548247
+Subscription started for client at  1759681010.9575543
+Subscription computation ended at  1759681010.9579175
+Rekey computation started at  1759681010.9588408
+Rekey computation ended for client at  1759681010.959245
+New Connection acquired from  10.31.226.215 62526 at  1759681011.5887632
+Encryption of permakey done with public key of client and sent at  1759681011.6123657
+Subscription started for client at  1759681011.61508
+Subscription computation ended at  1759681011.6154404
+Rekey computation started at  1759681011.6164362
+Rekey computation ended for client at  1759681011.616656
+New Connection acquired from  10.31.226.215 62531 at  1759681012.2100046
+Encryption of permakey done with public key of client and sent at  1759681012.2364774
+Subscription started for client at  1759681012.2394714
+Subscription computation ended at  1759681012.2397842
+Rekey computation started at  1759681012.2407775
+Rekey computation ended for client at  1759681012.2411659
+New Connection acquired from  10.31.226.215 62536 at  1759681012.8299916
+Encryption of permakey done with public key of client and sent at  1759681012.8550508
+Subscription started for client at  1759681012.8576295
+Subscription computation ended at  1759681012.8579602
+Rekey computation started at  1759681012.858847
+Rekey computation ended for client at  1759681012.8591182
+New Connection acquired from  10.31.226.215 62541 at  1759681013.5523312
+Encryption of permakey done with public key of client and sent at  1759681013.5737028
+Subscription started for client at  1759681013.5760214
+Subscription computation ended at  1759681013.5763175
+Rekey computation started at  1759681013.5771728
+Rekey computation ended for client at  1759681013.5774183
+New Connection acquired from  10.31.226.215 62546 at  1759681014.1520417
+Encryption of permakey done with public key of client and sent at  1759681014.176935
+Subscription started for client at  1759681014.1793551
+Subscription computation ended at  1759681014.1796699
+Rekey computation started at  1759681014.1808755
+Rekey computation ended for client at  1759681014.181136
+New Connection acquired from  10.31.226.215 62551 at  1759681014.7817554
+Encryption of permakey done with public key of client and sent at  1759681014.8093224
+Subscription started for client at  1759681014.8118024
+Subscription computation ended at  1759681014.8121417
+Rekey computation started at  1759681014.813108
+Rekey computation ended for client at  1759681014.8134456
+New Connection acquired from  10.31.226.215 62554 at  1759681015.3829482
+Encryption of permakey done with public key of client and sent at  1759681015.4098766
+Subscription started for client at  1759681015.412142
+Subscription computation ended at  1759681015.4124625
+Rekey computation started at  1759681015.4136572
+Rekey computation ended for client at  1759681015.4141495
+New Connection acquired from  10.31.226.215 62561 at  1759681016.0720842
+Encryption of permakey done with public key of client and sent at  1759681016.095658
+Subscription started for client at  1759681016.0986927
+Subscription computation ended at  1759681016.0990365
+Rekey computation started at  1759681016.1000915
+Rekey computation ended for client at  1759681016.1003726
+New Connection acquired from  10.31.226.215 62566 at  1759681016.7025747
+Encryption of permakey done with public key of client and sent at  1759681016.7261806
+Subscription started for client at  1759681016.7286592
+Subscription computation ended at  1759681016.7289808
+Rekey computation started at  1759681016.7298603
+Rekey computation ended for client at  1759681016.730184
+New Connection acquired from  10.31.226.215 62571 at  1759681017.4394078
+Encryption of permakey done with public key of client and sent at  1759681017.461495
+Subscription started for client at  1759681017.4638097
+Subscription computation ended at  1759681017.4641697
+Rekey computation started at  1759681017.4650984
+Rekey computation ended for client at  1759681017.4653444
+New Connection acquired from  10.31.226.215 62577 at  1759681018.0911448
+Encryption of permakey done with public key of client and sent at  1759681018.1157687
+Subscription started for client at  1759681018.1185298
+Subscription computation ended at  1759681018.118886
+Rekey computation started at  1759681018.1198497
+Rekey computation ended for client at  1759681018.1201272
+New Connection acquired from  10.31.226.215 62583 at  1759681018.9956214
+Encryption of permakey done with public key of client and sent at  1759681019.01998
+Subscription started for client at  1759681019.022241
+Subscription computation ended at  1759681019.0225444
+Rekey computation started at  1759681019.023448
+Rekey computation ended for client at  1759681019.0236983
+New Connection acquired from  10.31.226.215 62588 at  1759681019.6219702
+Encryption of permakey done with public key of client and sent at  1759681019.645726
+Subscription started for client at  1759681019.6481366
+Subscription computation ended at  1759681019.64843
+Rekey computation started at  1759681019.6493225
+Rekey computation ended for client at  1759681019.6495383
+New Connection acquired from  10.31.226.215 62593 at  1759681020.3454096
+Encryption of permakey done with public key of client and sent at  1759681020.3686683
+Subscription started for client at  1759681020.371093
+Subscription computation ended at  1759681020.371412
+Rekey computation started at  1759681020.3722997
+Rekey computation ended for client at  1759681020.3725274
+New Connection acquired from  10.31.226.215 62598 at  1759681021.0017262
+Encryption of permakey done with public key of client and sent at  1759681021.0297928
+Subscription started for client at  1759681021.0328043
+Subscription computation ended at  1759681021.0331082
+Rekey computation started at  1759681021.0339649
+Rekey computation ended for client at  1759681021.034276
+New Connection acquired from  10.31.226.215 62603 at  1759681021.7510364
+Encryption of permakey done with public key of client and sent at  1759681021.7750678
+Subscription started for client at  1759681021.777458
+Subscription computation ended at  1759681021.777774
+Rekey computation started at  1759681021.7786758
+Rekey computation ended for client at  1759681021.7792392
+New Connection acquired from  10.31.226.215 62608 at  1759681022.4326427
+Encryption of permakey done with public key of client and sent at  1759681022.4601748
+Subscription started for client at  1759681022.4632978
+Subscription computation ended at  1759681022.4648986
+Rekey computation started at  1759681022.4658873
+Rekey computation ended for client at  1759681022.4665432
+New Connection acquired from  10.31.226.215 62613 at  1759681023.1950967
+Encryption of permakey done with public key of client and sent at  1759681023.216474
+Subscription started for client at  1759681023.2188666
+Subscription computation ended at  1759681023.2191641
+Rekey computation started at  1759681023.220097
+Rekey computation ended for client at  1759681023.2204192
+New Connection acquired from  10.31.226.215 62619 at  1759681023.8489788
+Encryption of permakey done with public key of client and sent at  1759681023.8770468
+Subscription started for client at  1759681023.8795264
+Subscription computation ended at  1759681023.8798485
+Rekey computation started at  1759681023.880708
+Rekey computation ended for client at  1759681023.8812625
+New Connection acquired from  10.31.226.215 62624 at  1759681024.5408196
+Encryption of permakey done with public key of client and sent at  1759681024.5639124
+Subscription started for client at  1759681024.5669382
+Subscription computation ended at  1759681024.56728
+Rekey computation started at  1759681024.5685673
+Rekey computation ended for client at  1759681024.568841
+New Connection acquired from  10.31.226.215 62629 at  1759681025.2089806
+Encryption of permakey done with public key of client and sent at  1759681025.234375
+Subscription started for client at  1759681025.2373078
+Subscription computation ended at  1759681025.2376776
+Rekey computation started at  1759681025.2406678
+Rekey computation ended for client at  1759681025.2412617
+New Connection acquired from  10.31.226.215 62635 at  1759681025.9074466
+Encryption of permakey done with public key of client and sent at  1759681025.9332812
+Subscription started for client at  1759681025.936762
+Subscription computation ended at  1759681025.9371054
+Rekey computation started at  1759681025.9382102
+Rekey computation ended for client at  1759681025.938491
+New Connection acquired from  10.31.226.215 62638 at  1759681026.5427446
+Encryption of permakey done with public key of client and sent at  1759681026.5654223
+Subscription started for client at  1759681026.5688837
+Subscription computation ended at  1759681026.5691957
+Rekey computation started at  1759681026.570047
+Rekey computation ended for client at  1759681026.5704758
+New Connection acquired from  10.31.226.215 62645 at  1759681027.1884277
+Encryption of permakey done with public key of client and sent at  1759681027.213774
+Subscription started for client at  1759681027.2164476
+Subscription computation ended at  1759681027.2168074
+Rekey computation started at  1759681027.2183247
+Rekey computation ended for client at  1759681027.2194288
+New Connection acquired from  10.31.226.215 62650 at  1759681027.945099
+Encryption of permakey done with public key of client and sent at  1759681027.9701757
+Subscription started for client at  1759681027.9734678
+Subscription computation ended at  1759681027.973904
+Rekey computation started at  1759681027.975175
+Rekey computation ended for client at  1759681027.9757767
+New Connection acquired from  10.31.226.215 62655 at  1759681028.632887
+Encryption of permakey done with public key of client and sent at  1759681028.6553686
+Subscription started for client at  1759681028.658143
+Subscription computation ended at  1759681028.6584811
+Rekey computation started at  1759681028.6594524
+Rekey computation ended for client at  1759681028.659693
+New Connection acquired from  10.31.226.215 62660 at  1759681029.2593627
+Encryption of permakey done with public key of client and sent at  1759681029.2831903
+Subscription started for client at  1759681029.2857947
+Subscription computation ended at  1759681029.2861567
+Rekey computation started at  1759681029.288209
+Rekey computation ended for client at  1759681029.2886121
+New Connection acquired from  10.31.226.215 62667 at  1759681030.0764987
+Encryption of permakey done with public key of client and sent at  1759681030.1005185
+Subscription started for client at  1759681030.1029556
+Subscription computation ended at  1759681030.1032856
+Rekey computation started at  1759681030.105098
+Rekey computation ended for client at  1759681030.1061642
+New Connection acquired from  10.31.226.215 62672 at  1759681030.7706695
+Encryption of permakey done with public key of client and sent at  1759681030.7945259
+Subscription started for client at  1759681030.7969627
+Subscription computation ended at  1759681030.7972937
+Rekey computation started at  1759681030.798215
+Rekey computation ended for client at  1759681030.7984757
+New Connection acquired from  10.31.226.215 62677 at  1759681031.4461172
+Encryption of permakey done with public key of client and sent at  1759681031.4689662
+Subscription started for client at  1759681031.4716463
+Subscription computation ended at  1759681031.4723072
+Rekey computation started at  1759681031.473915
+Rekey computation ended for client at  1759681031.4743805
+New Connection acquired from  10.31.226.215 62682 at  1759681032.103248
+Encryption of permakey done with public key of client and sent at  1759681032.1251905
+Subscription started for client at  1759681032.127521
+Subscription computation ended at  1759681032.1278481
+Rekey computation started at  1759681032.128854
+Rekey computation ended for client at  1759681032.129575
+New Connection acquired from  10.31.226.215 62687 at  1759681032.7440703
+Encryption of permakey done with public key of client and sent at  1759681032.7689512
+Subscription started for client at  1759681032.7713082
+Subscription computation ended at  1759681032.7716424
+Rekey computation started at  1759681032.7725341
+Rekey computation ended for client at  1759681032.772804
+New Connection acquired from  10.31.226.215 62692 at  1759681033.433494
+Encryption of permakey done with public key of client and sent at  1759681033.4555237
+Subscription started for client at  1759681033.4586556
+Subscription computation ended at  1759681033.458981
+Rekey computation started at  1759681033.4599493
+Rekey computation ended for client at  1759681033.4603894
+New Connection acquired from  10.31.226.215 62697 at  1759681034.1545713
+Encryption of permakey done with public key of client and sent at  1759681034.178496
+Subscription started for client at  1759681034.1818848
+Subscription computation ended at  1759681034.1824088
+Rekey computation started at  1759681034.1834095
+Rekey computation ended for client at  1759681034.1836576
+New Connection acquired from  10.31.226.215 62700 at  1759681034.842303
+Encryption of permakey done with public key of client and sent at  1759681034.8699784
+Subscription started for client at  1759681034.8723273
+Subscription computation ended at  1759681034.8726149
+Rekey computation started at  1759681034.8735476
+Rekey computation ended for client at  1759681034.87378

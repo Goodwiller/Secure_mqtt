@@ -48,25 +48,26 @@ async def test_coro2(C):
     # print("listen Co_routine started...")
     a = 1
     count = 0
-    try:
-        while a == 1:
-            message = await C.deliver_message()
-            packet = message.publish_packet
-            print(
-                "%s => %s"
-                % (packet.variable_header.topic_name, str(packet.payload.data))
-            )
-            if (packet.payload.data[0] == 'N' and count == 0):
-                print("Subscription process with network latency ended at: ", time.time())	
-                count = count + 1
-            else:
-                print("Publish process with network latency ended at ", time.time())
-                a = 2
-        await C.unsubscribe(["default"])
-        await C.disconnect()
+    # try:
+    while a == 1:
+        message = await C.deliver_message()
+        packet = message.publish_packet
+        print(
+            "%s => %s"
+            % (packet.variable_header.topic_name, str(packet.payload.data))
+        )
+        if (packet.payload.data[0] == 'N' and count == 0):
+            print("Subscription process with network latency ended at: ", time.time())	
+            count = count + 1
+        else:
+            print("Publish process with network latency ended at ", time.time())
+            a = 2
+            await C.unsubscribe(["default"])
+            sys.exit(0)
+            await C.disconnect()
 
-    except ClientException as ce:
-        logger.error("Client exception: %s" % ce)
+    # except ClientException as ce:
+    #     logger.error("Client exception: %s" % ce)
 
 
 async def run_concurrently(C):

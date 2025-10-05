@@ -1,7 +1,7 @@
 import logging
 import asyncio
 import time
-
+import sys
 from amqtt.client import MQTTClient, ClientException
 from amqtt.mqtt.constants import QOS_1, QOS_2
 
@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 async def uptime_coro():
     C = MQTTClient()
     print("Connection process started at ", time.time())	
-    await C.connect("mqtt://10.31.226.215:1884/")
+    await C.connect("mqtt://192.168.0.198:1884/")
     print("Connection process ended at ", time.time())
     print("Subscription process with network latency started at: ", time.time())	
     await C.subscribe(
@@ -40,6 +40,7 @@ async def uptime_coro():
             if (packet.payload.data[0] == 'N' and count == 0):
                 print("Subscription process with network latency ended at: ", time.time())	
                 count = count + 1
+                sys.exit(0)
         await C.unsubscribe(["default"])
         logger.info("UnSubscribed")
         await C.disconnect()

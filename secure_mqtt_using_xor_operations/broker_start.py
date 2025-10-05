@@ -9,7 +9,7 @@ config = {
     "listeners": {
         "default": {
             "type": "tcp",
-            "bind": "172.17.34.5:1884",
+            "bind": "10.31.226.215:1884",
         },
         "ws-mqtt": {
             "bind": "127.0.0.1:8081",
@@ -32,7 +32,7 @@ broker = Broker(config)
 
 
 async def test_coro():
-    await broker.start("mqtt://172.17.34.5:1884/")
+    await broker.start("mqtt://10.31.226.215:1884/")
     # await asyncio.sleep(5)
     # await broker.shutdown()
 
