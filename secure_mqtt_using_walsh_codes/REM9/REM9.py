@@ -10,7 +10,7 @@ import subprocess
 import re
 
 # Path to your client_subscribe.py
-script_path = "C:/Users/iamra/Desktop/Secure_mqtt/secure_mqtt_using_xor_operations/REM9_client_publish.py"
+script_path = "C:/Users/iamra/Desktop/Secure_mqtt/secure_mqtt_using_walsh_codes/REM9_client_publish.py"
 
 # Regex patterns to extract timestamps
 start_pattern = re.compile(r"Subscription process with network latency ended at:\s+(\d+\.\d+)")

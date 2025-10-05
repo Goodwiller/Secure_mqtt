@@ -11,7 +11,7 @@ import subprocess
 import re
 
 # Path to your client_subscribe.py
-script_path = "C:/Users/iamra/Desktop/Secure_mqtt/secure_mqtt_using_xor_operations/REM3_4_client_subscribe.py"
+script_path = "C:/Users/iamra/Desktop/Secure_mqtt/secure_mqtt_using_greatest_common_divisor/REM3_4_client_subscribe.py"
 
 # Regex patterns
 start_pattern = re.compile(r"Rekey computation started at:\s+(\d+\.\d+)")

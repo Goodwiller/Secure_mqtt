@@ -24,7 +24,7 @@ async def uptime_coro():
     avg_time = 0
     time1 = time.time()*1000
     print("Connection process started at ", time.time())	
-    await C.connect("mqtt://192.168.0.198:1884/")
+    await C.connect("mqtt://10.31.226.215:1884/")
     time2 = time.time()*1000
     print("Connection process ended at ", time.time())	
     await C.disconnect()

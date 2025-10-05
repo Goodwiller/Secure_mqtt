@@ -9,7 +9,7 @@ import subprocess
 import re
 
 # Path to your client_subscribe.py
-script_path = "C:/Users/iamra/Desktop/Secure_mqtt/secure_mqtt_using_xor_operations/REM1_client_subscribe.py"
+script_path = "C:/Users/iamra/Desktop/Secure_mqtt/secure_mqtt_using_chinese_remainder_theorem/REM1_client_subscribe.py"
 
 # Regex patterns to extract timestamps
 start_pattern = re.compile(r"Connection process started at\s+(\d+\.\d+)")

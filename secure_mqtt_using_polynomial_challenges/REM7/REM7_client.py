@@ -2,7 +2,7 @@ import subprocess
 import re
 
 # Path to your client_subscribe.py
-script_path = "C:/Users/iamra/Desktop/Secure_mqtt/secure_mqtt_using_xor_operations/REM7_client_subscribe.py"
+script_path = "C:/Users/iamra/Desktop/Secure_mqtt/secure_mqtt_using_polynomial_challenges/REM7_client_subscribe.py"
 
 # Regex patterns
 start_pattern = re.compile(r"Subscription process with network latency started at:\s+(\d+\.\d+)")
