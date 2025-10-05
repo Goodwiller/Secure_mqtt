@@ -40,8 +40,9 @@ async def uptime_coro():
             if (packet.payload.data[0] == 'N' and count == 0):
                 print("Subscription process with network latency ended at: ", time.time())	
                 count = count + 1
+                await C.unsubscribe(["default"])
                 sys.exit(0)
-        await C.unsubscribe(["default"])
+        
         logger.info("UnSubscribed")
         await C.disconnect()
     except ClientException as ce:

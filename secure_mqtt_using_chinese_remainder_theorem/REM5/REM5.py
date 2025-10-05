@@ -17,10 +17,10 @@ import re
 log_file_path = "broker_logs.txt"
 
 # Number of initial entries to ignore
-n_skip = 1  # Change this to skip more or fewer entries
+n_skip = 15  # Change this to skip more or fewer entries
 
 # Regex patterns
-conn_pattern = re.compile(r"Subscription started for client at\s+(\d+\.\d+)")
+conn_pattern = re.compile(r"Subscription computation started for client at\s+(\d+\.\d+)")
 enc_pattern = re.compile(r"Subscription computation ended at\s+(\d+\.\d+)")
 
 def analyze_logs():
