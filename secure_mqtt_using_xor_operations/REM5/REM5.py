@@ -17,7 +17,7 @@ import re
 log_file_path = "broker_logs.txt"
 
 # Number of initial entries to ignore
-n_skip = 5  # Change this to skip more or fewer entries
+n_skip = 15  # Change this to skip more or fewer entries
 
 # Regex patterns
 conn_pattern = re.compile(r"Subscription started for client at\s+(\d+\.\d+)")

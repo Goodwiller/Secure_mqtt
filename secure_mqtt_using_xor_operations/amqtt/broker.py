@@ -1286,6 +1286,7 @@ class Broker:
             )
 
     async def _broadcast_message(self, session, topic, data, force_qos=None):
+
         
         #Call to encrypt data is here
         splited_data = str(data).split('||')
@@ -1295,6 +1296,7 @@ class Broker:
                 broadcast["qos"] = force_qos
             await self._broadcast_queue.put(broadcast)
         else:
+            print("Begin broadcasting messages retained due to subscription on\"" + topic + "\" at " + str(time.time()))
             # print("Encrypting message before broadcasting for channel \"" + topic + "\"")
             data = await self.encrypt_data(data, self._channel_key_table[topic])
             # print(topic, data, self._channel_key_table[topic])
@@ -1303,7 +1305,8 @@ class Broker:
             if force_qos:
                 broadcast["qos"] = force_qos
             await self._broadcast_queue.put(broadcast)
-            print("Message broadcasted on channel \"" + topic + "\"")
+
+            print("End broadcasting messages retained due to subscription on \"" + topic + "\" at " + str(time.time()))
 
     async def publish_session_retained_messages(self, session):
         self.logger.debug(
