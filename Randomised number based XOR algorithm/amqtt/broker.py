@@ -1,6 +1,7 @@
 # Copyright (c) 2015 Nicolas JOUANIN
 #
 # See the file license.txt for copying permission.
+from asyncio.log import logger
 from typing import Optional
 import logging
 import ssl
@@ -184,29 +185,47 @@ class Broker:
 
         # Get keys of existing clients subscribed to the channel
         if topic in self._subscriptions:
-            for client in self._subscriptions[topic]:
+            for i, client in enumerate(self._subscriptions[topic]):
                 if client[0].client_id in self._perma_key_table:
-                    keys.insert(len(keys), (client[0].client_id, self._perma_key_table[client[0].client_id]))
+                    keys.insert(len(keys), (
+                        client[0].client_id,
+                        self._perma_key_table[client[0].client_id],
+                        ((client[2] * client[3]) & ((1 << 128) - 1) )
+                    ))
+                    self._subscriptions[topic][i][3] = self._subscriptions[topic][i][3] + 1  # replace with modified version if needed
+
+                    
             
             # print(keys)
+
+            temp_key = []
+            for subscribers in keys:
+                temp_key.insert(len(temp_key), (
+                        subscribers[0],
+                        subscribers[1] ^ subscribers[2]
+                    ))
+
+            print("Temp  -- temp_keys")
+            print(temp_key)
+
 
             # Generate random integer
             random_int = os.urandom(16)
             random_int = int.from_bytes(random_int, byteorder="big")
 
-            xor_operation = keys[0][1]
-            for i in range(1, len(keys)):
-                xor_operation = xor_operation ^ keys[i][1]
+            xor_operation = temp_key[0][1]
+            for i in range(1, len(temp_key)):
+                xor_operation = xor_operation ^ temp_key[i][1]
 
 
             xor_operation = xor_operation ^ random_int
-            # print(xor_operation)
+            print("Temp -- NGK:", xor_operation)
 
             self._channel_key_table[topic] = xor_operation
 
             partial_xors = []
-            for i in range(0, len(keys)):
-                partial_xors.insert(len(partial_xors), (keys[i][0], xor_operation ^ keys[i][1]))
+            for i in range(0, len(temp_key)):
+                partial_xors.insert(len(partial_xors), (temp_key[i][0], xor_operation ^ temp_key[i][1]))
 
             # print(partial_xors)
 
@@ -222,8 +241,6 @@ class Broker:
 
             for i in range(0, len(partial_xors)):
                 hash_message = hash_message + str(partial_xors[i][0]) + "||" + str(partial_xors[i][1]) + "||"
-
-            # print(hash_message)
 
             #Converting string to byte array to send
             encoded=hash_message.encode('utf-8')
@@ -244,19 +261,36 @@ class Broker:
 
         # Get keys of existing clients subscribed to the channel
         if topic in self._subscriptions:
-            for client in self._subscriptions[topic]:
+            for i, client in enumerate(self._subscriptions[topic]):
                 if client[0].client_id in self._perma_key_table:
-                    keys.insert(len(keys), (client[0].client_id, self._perma_key_table[client[0].client_id]))
+                    keys.insert(len(keys), (
+                        client[0].client_id,
+                        self._perma_key_table[client[0].client_id],
+                        ((client[2] * client[3]) & ((1 << 128) - 1) )
+                    ))
+                    self._subscriptions[topic][i][3] = self._subscriptions[topic][i][3] + 1  # replace with modified version if needed
+
+                    
             
             # print(keys)
+
+            temp_key = []
+            for subscribers in keys:
+                temp_key.insert(len(temp_key), (
+                        subscribers[0],
+                        subscribers[1] ^ subscribers[2]
+                    ))
+
+            print("Temp  -- temp_keys")
+            print(temp_key)
 
             # Generate random integer
             random_int = os.urandom(16)
             random_int = int.from_bytes(random_int, byteorder="big")
 
-            xor_operation = keys[0][1]
-            for i in range(1, len(keys)):
-                xor_operation = xor_operation ^ keys[i][1]
+            xor_operation = temp_key[0][1]
+            for i in range(1, len(temp_key)):
+                xor_operation = xor_operation ^ temp_key[i][1]
 
 
             xor_operation = xor_operation ^ random_int
@@ -265,8 +299,8 @@ class Broker:
             self._channel_key_table[topic] = xor_operation
 
             partial_xors = []
-            for i in range(0, len(keys)):
-                partial_xors.insert(len(partial_xors), (keys[i][0], xor_operation ^ keys[i][1]))
+            for i in range(0, len(temp_key)):
+                partial_xors.insert(len(partial_xors), (temp_key[i][0], xor_operation ^ temp_key[i][1]))
 
             # print(partial_xors)
 
@@ -311,24 +345,35 @@ class Broker:
                     public_key = public_key.replace("\\n", "\n")
                     public_key = public_key.replace("b\\'", "")
                     public_key = public_key.replace("\\'", "")
-                    # print("client ID: ", client_id)
-                    # print("Client's public key:" + "\n"  + public_key)
+                    print("Temp -- client ID: ", client_id)
+                    print("Temp -- Client's public key:" + "\n"  + public_key)
 
                     #Generate perma key for client
                     random_bytes = os.urandom(16)  # 16 bytes for a 128-bit integer
                     perma_key = int.from_bytes(random_bytes, byteorder="big")
-                    # print("Generated Perma Key: ", perma_key)
 
+
+
+                    #Generate subscribe seed for client
+                    random_bytes1 = os.urandom(16)  # 16 bytes for a 128-bit integer
+                    subscription_seed = int.from_bytes(random_bytes1, byteorder="big")
+
+                    print("Temp -- Generated Perma Key and subscription seed", perma_key, subscription_seed)
 
                     #Adding perma key to the table
                     self._perma_key_table[client_id] = perma_key
                     # print(self._perma_key_table)
 
+                    #Adding subscription seed to the table
+                    self._subcription_seed_table[client_id] = subscription_seed
+                    # print(self._subcription_seed_table)
 
                     #Encryption of perma key with public key of client should take place here
                     pubkey_restored = rsa.PublicKey.load_pkcs1(public_key.encode('utf-8'))
 
-                    cipher = rsa.encrypt(str(perma_key).encode('utf-8'), pubkey_restored)
+                    plain_text = str(perma_key) + "||" + str(subscription_seed)
+
+                    cipher = rsa.encrypt((plain_text).encode('utf-8'), pubkey_restored)
 
                     hex_representation = cipher.hex()
                     byte_object = bytes.fromhex(hex_representation)
@@ -406,6 +451,9 @@ class Broker:
 
         #Dictionary for storing perma keys
         self._perma_key_table = dict()
+
+        #Dictionary for storing perma keys
+        self._subcription_seed_table = dict()
 
         #Dictionary for storing Gk for a channel
         self._channel_key_table = dict()
@@ -1048,6 +1096,18 @@ class Broker:
                 self.logger.debug("Clear retained messages for topic '%s'" % topic_name)
                 del self._retained_messages[topic_name]
 
+    def circular_right_shift(self, value, shift, bit_size=128):
+        """
+        Perform circular right shift on an integer.
+        
+        :param value: Integer to shift
+        :param shift: Number of bits to shift
+        :param bit_size: Bit width of the integer (default 32)
+        :return: Result after circular right shift
+        """
+        shift %= bit_size  # normalize shift
+        return ((value >> shift) | (value << (bit_size - shift))) & ((1 << bit_size) - 1)
+
     async def add_subscription(self, subscription, session):
     
         try:
@@ -1076,13 +1136,22 @@ class Broker:
             already_subscribed = next(
                 (
                     s
-                    for (s, qos) in self._subscriptions[a_filter]
+                    for s, qos, *_ in self._subscriptions[a_filter]
                     if s.client_id == session.client_id
                 ),
                 None,
             )
             if not already_subscribed:
-                self._subscriptions[a_filter].append((session, qos))
+
+                if (a_filter == "KEYDIS"):
+                
+                    self._subscriptions[a_filter].append([session, qos])
+                else:
+                    self._subcription_seed_table[session.client_id] = self.circular_right_shift(self._subcription_seed_table[session.client_id], 1)
+                    self._subscriptions[a_filter].append([session, qos, self._subcription_seed_table[session.client_id], 1])
+                
+                # print(self._subscriptions)
+                # print(session.client_id)
 
                 #call join  function here
                 asyncio.create_task(self.handle_join(a_filter, session))
@@ -1219,9 +1288,9 @@ class Broker:
                 continue
 
             subscriptions = self._subscriptions[k_filter]
-            for (target_session, qos) in subscriptions:
+            for target_session, qos, *_ in subscriptions:
                 qos = broadcast.get("qos", qos)
-
+                
                 # Retain all messages which cannot be broadcasted
                 # due to the session not being connected
                 if target_session.transitions.state != "connected":

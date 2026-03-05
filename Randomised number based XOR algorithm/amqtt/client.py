@@ -1,6 +1,7 @@
 # Copyright (c) 2015 Nicolas JOUANIN
 #
 # See the file license.txt for copying permission.
+from asyncio.log import logger
 import time
 import asyncio
 import logging
@@ -125,16 +126,20 @@ class MQTTClient:
         #placeholder for perma key
         self.perma_key = None
 
+        #placeholder for subscription seed
+        self.subscription_seed = None
+
+
         #Flag to check if the client is created by the broker itself or not
         self.is_broker_client = is_broker_client
 
 
         #Generating RSA keys for perma keys exchange
         if self.is_broker_client == False :
-            (pub, priv) = rsa.newkeys(512)
+            (pub, priv) = rsa.newkeys(1024)
             self.private_key = priv
             self.public_key = pub
-            # print("Generated RSA keys for perma keys exchange")
+            print("Temp -- Generated RSA keys for perma keys exchange")
 
         #Table for channels subscribed by the client
         self.subscribed_channels = dict()
@@ -159,7 +164,7 @@ class MQTTClient:
         return receivedplaintext
 
     async def decrypt_key(self, key_string, ciphertext):
-        # print("Decrypting key....")
+        print("Decrypting key....")
         key  = int(key_string).to_bytes(16, 'big')
         nonce = int(key_string).to_bytes(16, 'little')
         associateddata = b"ASCON"
@@ -238,7 +243,7 @@ class MQTTClient:
                 ]
             )
             self.subscribed_channels["KEYDIS"] = True
-            # print("Subscribing to KEYDIS channel to get perma key")
+            print("Temp -- Subscribing to KEYDIS channel to get perma key")
 
             # Converting public key to readable form
             pem = self.public_key.save_pkcs1().decode('utf-8')
@@ -251,7 +256,7 @@ class MQTTClient:
                 asyncio.ensure_future(self.publish("KEYDIS", bytes(req,"ascii"))),
             ]
             await asyncio.wait(tasks)
-            # print("sending request for perma key to KEY DIS client via KEYDIS channel")
+            print("Temp -- sending request for perma key to KEY DIS client via KEYDIS channel")
 
             #waiting for perma key response in the KEYDIS channel
             # print("waiting for perma key response in the KEYDIS channel")
@@ -268,13 +273,32 @@ class MQTTClient:
                         byte_object = bytes.fromhex(cipher_key)
                         # print(byte_object)
 
+                        print("Temp -- encrypted perma key received...")
+
                         decrypted_cipher = rsa.decrypt(byte_object, self.private_key)
 
-                        # print(decrypted_cipher)
+                        decrypted_cipher = str(decrypted_cipher).split('||')
 
-                        self.perma_key = int(decrypted_cipher)
+                        numbers = []
+
+                        for x in decrypted_cipher:
+                            # Remove leading "b'" if present and trailing "'" if present
+                            clean_str = x
+                            if clean_str.startswith("b'"):
+                                clean_str = clean_str[2:]
+                            if clean_str.endswith("'"):
+                                clean_str = clean_str[:-1]
+
+                            # Convert to integer
+                            numbers.append(int(clean_str))
+                        
+                        print("Temp -- ", numbers)
+
+                        self.perma_key = numbers[0]
+
+                        self.subscription_seed = numbers[1]
                 
-                        # print("perma key received...")
+                        print("Temp -- perma key and subscription seed received...")
                         a = 2
                     else:
                         continue
@@ -465,7 +489,19 @@ class MQTTClient:
                             topic, message, app_qos, app_retain, ack_timeout
                     )
                     return
-
+   
+   
+    def circular_right_shift(self, value, shift, bit_size=128):
+        """
+        Perform circular right shift on an integer.
+        
+        :param value: Integer to shift
+        :param shift: Number of bits to shift
+        :param bit_size: Bit width of the integer (default 32)
+        :return: Result after circular right shift
+        """
+        shift %= bit_size  # normalize shift
+        return ((value >> shift) | (value << (bit_size - shift))) & ((1 << bit_size) - 1)
 
     @mqtt_connected
     async def subscribe(self, topics):
@@ -491,6 +527,11 @@ class MQTTClient:
         for topic in topics:
             self.subscribed_channels[topic[0]] = True
 
+            if (topic[0] != "KEYDIS"):
+                print("Temp  --  Subcription seed: ", self.subscription_seed)
+                self.subscription_seed = self.circular_right_shift(self.subscription_seed,1)
+                self.subscribed_channels[topic[0]] = [self.subscription_seed, 1]
+                print("Temp  --  Subcription_G for topic ",topic, self.subscription_seed)
 
         return await self._handler.mqtt_subscribe(topics, self.session.next_packet_id)
 
@@ -551,6 +592,11 @@ class MQTTClient:
             message = deliver_task.result().publish_packet.payload.data
             message = str(message).split('||')
             if len(message) > 1 and message[1] in self.subscribed_channels:
+                # print(message)
+                # print(self.subscribed_channels)
+                temp_key = self.perma_key ^ ((self.subscribed_channels[message[1]][0] * self.subscribed_channels[message[1]][1]) & ((1 << 128) - 1) )
+                self.subscribed_channels[message[1]][1]  = self.subscribed_channels[message[1]][1] + 1
+                print("Temp -- temp_key: ",temp_key)
                 print("Rekey computation started at: ",time.time())
                 # if message[2] == "New":
                 #     client_id = message[3]
@@ -574,11 +620,11 @@ class MQTTClient:
                     if (client_id == self.client_id):
                         # print(message[i+1])
                         # print(int(message[i+1]) ^ self.perma_key)
-                        self.channel_keys[message[1]] = int(message[i+1]) ^ self.perma_key
+                        self.channel_keys[message[1]] = int(message[i+1]) ^ temp_key
                         break
                     # print("someone left")
                 
-                # print(self.channel_keys[message[1]])
+                print("Temp -- NGK:", self.channel_keys[message[1]])
                 print("Rekey computation ended at: ",time.time())
                 # print("New channel key added for channel \"" + message[1] + "\"")
                 deliver_task.result().publish_packet.payload.data = "New channel key added for channel \"" + message[1] + "\""

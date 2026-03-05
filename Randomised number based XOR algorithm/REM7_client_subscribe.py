@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 async def uptime_coro():
     C = MQTTClient()
     print("Connection process started at ", time.time())	
-    await C.connect("mqtt://10.31.226.215:1884/")
+    await C.connect("mqtt://127.0.0.1:1884/")
     print("Connection process ended at ", time.time())
     print("Subscription process with network latency started at: ", time.time())	
     await C.subscribe(
@@ -37,12 +37,12 @@ async def uptime_coro():
                 "%s => %s"
                 % (packet.variable_header.topic_name, str(packet.payload.data))
             )
-            if (packet.payload.data[0] == 'N' and count == 0):
-                print("Subscription process with network latency ended at: ", time.time())	
-                count = count + 1
-                await C.unsubscribe(["default"])
-                print("UnSubscribed")
-                sys.exit(0)
+            # if (packet.payload.data[0] == 'N' and count == 0):
+            #     print("Subscription process with network latency ended at: ", time.time())	
+            #     count = count + 1
+            #     await C.unsubscribe(["default"])
+            #     print("UnSubscribed")
+            #     sys.exit(0)
     except ClientException as ce:
         logger.error("Client exception: %s" % ce)
 

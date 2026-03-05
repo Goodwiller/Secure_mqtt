@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 async def con():
     print("Connection process started at ", time.time())	
     C = MQTTClient()
-    await C.connect("mqtt://10.31.226.215:1884/")
+    await C.connect("mqtt://127.0.0.1:1884/")
     print("Connection process ended at ", time.time())
     print("Subscription process with network latency started at: ", time.time())
     await C.subscribe(
@@ -64,7 +64,6 @@ async def test_coro2(C):
                 a = 2
         await C.unsubscribe(["default"])
         await C.disconnect()
-
     except ClientException as ce:
         logger.error("Client exception: %s" % ce)
 
@@ -78,7 +77,7 @@ if __name__ == "__main__":
         "[%(asctime)s] %(name)s {%(filename)s:%(lineno)d} %(levelname)s - %(message)s"
     )
     formatter = "%(message)s"
-    logging.basicConfig(level=logging.CRITICAL, format=formatter)
+    logging.basicConfig(level=logging.INFO, format=formatter)
 
     C = asyncio.get_event_loop().run_until_complete(con())
 
